@@ -1,95 +1,83 @@
-const { getDb, applyCors, verifyAdmin } = require('./_utils');
+const { getDb, fail, requireAdmin } = require('./_utils');
+const { ID_RE, clean } = require('./_shop');
 
 const CATEGORIES = ['nahrdelniky', 'nausnice', 'naramky', 'soupravy'];
-const ID_RE = /^[A-Za-z0-9_-]{1,128}$/;
+
+// Fotky smí být JEN z vlastního Cloudinary účtu (žádné cizí servery / sledovací pixely).
+function allowedImg(url) {
+  const cloud = process.env.CLOUDINARY_CLOUD_NAME;
+  if (!cloud) return false;
+  try {
+    const u = new URL(url);
+    return u.protocol === 'https:' && u.hostname === 'res.cloudinary.com'
+      && u.pathname.startsWith('/' + cloud + '/image/upload/') && !u.username && !u.password;
+  } catch {
+    return false;
+  }
+}
 
 // Whitelist polí + validace — do Firestore se nikdy neuloží nic navíc.
 function sanitizeProduct(body) {
-  if (!body || typeof body !== 'object') return { error: 'Chybí data' };
-
-  const name = typeof body.name === 'string' ? body.name.trim() : '';
-  if (!name || name.length > 200) return { error: 'Neplatný název' };
+  const name = clean(body.name, 200);
+  if (!name) return { error: 'Neplatný název' };
 
   const price = Number(body.price);
-  if (!Number.isFinite(price) || price <= 0 || price > 1000000) {
-    return { error: 'Neplatná cena' };
-  }
+  if (!Number.isInteger(price) || price <= 0 || price > 1000000) return { error: 'Cena musí být celé číslo v Kč' };
 
-  const cat = CATEGORIES.includes(body.cat) ? body.cat : null;
-  if (!cat) return { error: 'Neplatná kategorie' };
+  if (!CATEGORIES.includes(body.cat)) return { error: 'Neplatná kategorie' };
 
-  const str = (v, max) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
-
-  const imgs = (Array.isArray(body.imgs) ? body.imgs : [])
-    .map(u => str(u, 500))
-    .filter(Boolean)
-    .slice(0, 10);
-  if (imgs.some(u => !/^https:\/\//.test(u))) return { error: 'Obrázky musí být https URL' };
+  const imgs = (Array.isArray(body.imgs) ? body.imgs : []).map(u => clean(u, 500)).filter(Boolean);
+  if (imgs.length > 10) return { error: 'Maximálně 10 fotek' };
+  if (!imgs.every(allowedImg)) return { error: 'Fotky musí být nahrané přes admin (Cloudinary)' };
 
   return {
     data: {
       name,
-      price: Math.round(price),
-      cat,
-      collection: str(body.collection, 60),
-      material: str(body.material, 300),
-      desc: str(body.desc, 3000),
+      price,
+      cat: body.cat,
+      collection: clean(body.collection, 60),
+      material: clean(body.material, 300),
+      desc: clean(body.desc, 3000, true),
       imgs,
-      badge: str(body.badge, 50),
+      badge: clean(body.badge, 40),
       inStock: body.inStock !== false,
     },
   };
 }
 
 export default async function handler(req, res) {
-  if (applyCors(req, res, 'GET, POST, PUT, DELETE, OPTIONS')) return;
-
-  if (!verifyAdmin(req)) {
-    return res.status(401).json({ error: 'Neautorizováno' });
-  }
-
-  const db = getDb();
+  if (!requireAdmin(req, res, ['GET', 'POST', 'PUT', 'DELETE'])) return;
+  const col = getDb().collection('products');
 
   try {
     if (req.method === 'GET') {
-      const snap = await db.collection('products').orderBy('name').get();
-      const products = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      return res.status(200).json(products);
+      const snap = await col.orderBy('name').get();
+      return res.status(200).json(snap.docs.map(d => ({ id: d.id, ...d.data() })));
     }
 
     if (req.method === 'POST') {
       const { data, error } = sanitizeProduct(req.body);
-      if (error) return res.status(400).json({ error });
-      data.createdAt = new Date().toISOString();
-      const ref = await db.collection('products').add(data);
+      if (error) return fail(res, 400, error);
+      const ref = await col.add({ ...data, createdAt: new Date().toISOString() });
       return res.status(200).json({ id: ref.id });
     }
 
+    const id = req.body.id;
+    if (typeof id !== 'string' || !ID_RE.test(id)) return fail(res, 400, 'Neplatné ID');
+
     if (req.method === 'PUT') {
-      const id = req.body?.id;
-      if (typeof id !== 'string' || !ID_RE.test(id)) {
-        return res.status(400).json({ error: 'Neplatné ID' });
-      }
       const { data, error } = sanitizeProduct(req.body);
-      if (error) return res.status(400).json({ error });
-      data.updatedAt = new Date().toISOString();
-      await db.collection('products').doc(id).update(data);
+      if (error) return fail(res, 400, error);
+      await col.doc(id).update({ ...data, updatedAt: new Date().toISOString() });
       return res.status(200).json({ ok: true });
     }
 
     if (req.method === 'DELETE') {
-      const id = req.body?.id;
-      if (typeof id !== 'string' || !ID_RE.test(id)) {
-        return res.status(400).json({ error: 'Neplatné ID' });
-      }
-      await db.collection('products').doc(id).delete();
+      await col.doc(id).delete();
       return res.status(200).json({ ok: true });
     }
-
-    return res.status(405).end();
-
   } catch (err) {
-    console.error('products error:', err);
-    res.status(500).json({ error: 'Interní chyba serveru' });
+    console.error('products error:', err.message);
+    return fail(res, 500, 'Interní chyba serveru');
   }
 }

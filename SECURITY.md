@@ -1,29 +1,65 @@
-# Security Policy
+# Bezpečnost — Sága Art
 
-## Hlášení zranitelností
+Hlášení zranitelností: **brozpetr.bp@gmail.com** (prosím neveřejně, dokud nebude oprava).
 
-Pokud najdete bezpečnostní chybu, napište prosím na **brozpetr.bp@gmail.com**.
-Neprozrazujte prosím zranitelnost veřejně, dokud nebude opravena.
+## Jak je e-shop chráněný
 
-## Bezpečnostní opatření v projektu
+### Objednávky a platby
+- **Ceny, doprava, součty i číslo objednávky určuje jen server** (`api/_shop.js`). Prohlížeč posílá pouze id šperku + počet kusů.
+- Ceny se čtou **jen z databáze** — smazaný nebo prodaný šperk koupit nejde.
+- Každá objednávka se uloží do Firestore dřív, než se cokoli zaplatí nebo odešle.
+- Platba kartou se označí jako zaplacená **jen webhookem se Stripe podpisem**, a jen když sedí částka i měna. Webhook je idempotentní (opakované doručení nic nerozbije).
+- Údaje zákaznice prochází přísnou validací (whitelist polí, délky, formát e-mailu, telefonu, PSČ, země, odstranění řídicích znaků).
+- Ochrana proti spamu: rate limit 5 objednávek / 10 min na IP (sdílený přes Firestore) + honeypot pole proti botům.
+- **E-maily posílá jen server** (EmailJS REST API s privátním klíčem). Z prohlížeče už e-mail poslat nejde.
 
-- Ceny objednávek se počítají výhradně na serveru (`api/checkout.js`) — klientem
-  poslané ceny se nikdy nepoužívají.
-- Platby se ověřují proti Stripe (`api/verify-payment.js`) a zaznamenávají
-  webhookem s ověřeným podpisem (`api/stripe-webhook.js`).
-- Admin přihlášení vydává JWT s platností 12 hodin (`api/login.js`),
-  s rate limitem a timing-safe porovnáním hesla.
-- Zápisy do databáze procházejí whitelist validací polí (`api/products.js`).
-- Veškerý dynamický obsah v HTML se escapuje proti XSS.
-- CORS je omezen na vlastní doménu (viz `api/_utils.js`).
+### Admin
+- Přihlášení **heslem + dvoufázovým kódem (TOTP)** z ověřovací aplikace.
+- Heslo je uložené jen jako **scrypt hash** (`ADMIN_PASSWORD_HASH`), nikdy v čitelné podobě.
+- Každý 2FA kód jde použít jen jednou (ochrana proti replay).
+- Limit pokusů: 5 / 15 min na IP a 20 / hod celkově — sdílený přes Firestore, platí napříč servery. Když databáze neodpoví, přihlášení se odmítne (fail-closed).
+- Session = podepsaný JWT (HS256, issuer/audience, 2 h) v **HttpOnly; Secure; SameSite=Strict** cookie s prefixem `__Host-`. JavaScript na stránce k ní nemá přístup.
+- Okamžité odhlášení všech zařízení: změň `ADMIN_SESSION_VERSION` (např. z `1` na `2`).
+- CSRF: zapisující requesty musí mít Origin vlastní domény a `Content-Type: application/json`.
+- Fotky se nahrávají **podepsaně** přes `/api/upload-sign` — nahrávat smí jen přihlášený admin, Cloudinary secret neopustí server. Uložit lze jen URL z vlastního Cloudinary účtu.
 
-## Potřebné environment proměnné (Vercel)
+### Prohlížeč
+- Přísná **Content-Security-Policy**: skripty jen z vlastní domény, žádný inline JavaScript, žádné cizí skripty.
+- HSTS (2 roky, preload), `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy, COOP/CORP.
+- Veškerý dynamický obsah se escapuje proti XSS; URL obrázků jen `https`.
+- Admin má `noindex` a `no-store`.
 
-| Proměnná | Účel |
+### Databáze a infrastruktura
+- `firestore.rules`: **veškerý přímý přístup z prohlížeče zakázán**. Do databáze smí jen server.
+- Na Vercel se nasazuje jen `public/` + `api/`; skripty a dokumentace ne (`.vercelignore`).
+- Závislosti mají pevné verze + `package-lock.json`. Kontrola: `npm audit --omit=dev`.
+- Chyby se logují bez osobních údajů a klientovi se nevrací detaily serveru.
+
+## Nastavení — environment proměnné (Vercel → Settings → Environment Variables)
+
+| Proměnná | Jak získat |
 | --- | --- |
-| `ADMIN_PASSWORD` | heslo do admin panelu |
-| `ADMIN_JWT_SECRET` | tajný klíč pro podepisování JWT (dlouhý náhodný řetězec) |
-| `STRIPE_SECRET_KEY` | Stripe secret key (`sk_live_…`) |
-| `STRIPE_WEBHOOK_SECRET` | signing secret webhooku (`whsec_…`) |
-| `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY` | Firebase Admin SDK |
-| `SITE_URL` | volitelně — URL webu pro CORS a Stripe redirecty |
+| `SITE_URL` | `https://sagaart.cz` (přesně, bez lomítka na konci) |
+| `ADMIN_PASSWORD_HASH` | `npm run hash-password` (heslo min. 14 znaků) |
+| `ADMIN_TOTP_SECRET` | `npm run totp-setup` → klíč vlož i do aplikace Authenticator |
+| `ADMIN_JWT_SECRET` | `node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"` |
+| `ADMIN_SESSION_VERSION` | `1` (zvýšením odhlásíš všechna zařízení) |
+| `STRIPE_SECRET_KEY` | Stripe → **Restricted key** jen s právy Checkout Sessions (write) |
+| `STRIPE_WEBHOOK_SECRET` | Stripe → Webhooks → endpoint `https://sagaart.cz/api/stripe-webhook`, události `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `checkout.session.expired` |
+| `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY` | Firebase → Service account (vlastní účet jen s rolí *Cloud Datastore User*) |
+| `EMAILJS_SERVICE_ID`, `EMAILJS_PUBLIC_KEY`, `EMAILJS_PRIVATE_KEY`, `EMAILJS_TEMPLATE_CUSTOMER`, `EMAILJS_TEMPLATE_OWNER` | EmailJS → Account → Security: zapnout *API access from non-browser*, **vypnout** přístup z prohlížeče |
+| `OWNER_EMAIL` | kam chodí upozornění na objednávky |
+| `BANK_ACCOUNT`, `BANK_IBAN` | účet pro platby převodem |
+| `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` | Cloudinary → Settings → API Keys. **Smaž všechny unsigned upload presety.** |
+
+Secrety ukládej na Vercelu jako **Sensitive**, nikdy do repozitáře (je veřejný).
+
+## Kontrolní seznam před spuštěním
+1. Firestore: nasadit `firestore.rules` (Firebase konzole → Firestore → Rules).
+2. Firestore: zapnout **TTL policy** na kolekci `rate_limits`, pole `expireAt` (automatický úklid).
+3. Firestore: `npm run seed` (s `.env.local`) nahraje výchozí šperky.
+4. Stripe: webhook + restricted key, zapnout Radar.
+5. EmailJS: šablony nepoužívají `{{{trojité}}}` závorky (ty vypínají escapování).
+6. Vercel: Settings → Deployment Protection pro Preview deploymenty; zapnout **Firewall / Bot protection**.
+7. Účty Vercel, GitHub, Stripe, Firebase, Cloudinary, EmailJS: všude **2FA**.
+8. Doména: po ověření HTTPS přidat na https://hstspreload.org.

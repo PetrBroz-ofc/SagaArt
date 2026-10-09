@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sága Art — Ručně vyráběné šperky z pravých perel</title>
+<meta name="description" content="Sága Art — ručně vyráběné šperky z pravých říčních perel, přírodních minerálů a nerezové oceli. Náhrdelníky, náušnice, náramky a sety.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#" class="nav-logo">Sága <em>Art</em></a>
+  <ul class="nav-links">
+    <li><a href="#kolekce">Kolekce</a></li>
+    <li><a href="#produkty">Šperky</a></li>
+    <li><a href="#o-saga-art">O Sága Art</a></li>
+    <li><a href="#doprava">Doprava</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <button class="nav-cart" data-action="toggleCart">
+    Košík <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">✦ Ručně vyráběné šperky z pravých perel</p>
+    <h1 class="hero-title">Žít naplno a <em>zářit</em> po svém</h1>
+    <p class="hero-desc">Šperky z pravých říčních perel, přírodních minerálů a chirurgické či nerezové oceli. Každý kousek vzniká ručně, s důrazem na detail — a svůj další příběh dostává od ženy, která si ho vybere.</p>
+    <div class="hero-btns">
+      <a href="#produkty" class="btn-primary">Prohlédnout šperky</a>
+      <a href="#kolekce" class="btn-ghost">Kolekce</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Až budou fotky: <img src="hero.webp" alt="Sága Art šperky"/> -->
+    <svg class="hero-pearls" viewBox="0 0 400 400" aria-hidden="true">
+      <defs>
+        <radialGradient id="pg" cx="35%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="55%" stop-color="#f8ecea"/>
+          <stop offset="100%" stop-color="#dcb9bb"/>
+        </radialGradient>
+        <radialGradient id="gg" cx="35%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#d9f0ea"/>
+          <stop offset="100%" stop-color="#8fbfb1"/>
+        </radialGradient>
+      </defs>
+      <path d="M40 70 Q200 400 360 70" fill="none" stroke="#b8956a" stroke-width="1.4"/>
+      <g id="strand"></g>
+      <path d="M200 268 l0 26" stroke="#b8956a" stroke-width="1.4"/>
+      <circle cx="200" cy="318" r="24" fill="url(#pg)"/>
+    </svg>
+    <div class="floating-badge">
+      <div class="floating-badge-icon">🤍</div>
+      <div class="floating-badge-text">
+        <strong>Každý šperk je originál</strong>
+        <span>Pravé perly · ruční práce</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-strip">„Nejde o to, co chcete skrýt. Jde o to, co chcete ukázat.“</div>
+
+<!-- ═══ KOLEKCE ═══ -->
+<section class="categories" id="kolekce">
+  <div class="section-header">
+    <span class="section-tag">✦ Kolekce</span>
+    <h2 class="section-title">Každá kolekce má svůj <em>příběh</em></h2>
+  </div>
+  <div class="cat-grid" id="collectionGrid"></div>
+</section>
+
+<!-- ═══ PRODUKTY ═══ -->
+<section class="products" id="produkty">
+  <div class="products-header">
+    <div class="section-header">
+      <span class="section-tag">✦ Skladem · odesíláme ihned</span>
+      <h2 class="section-title">Právě v <em>nabídce</em></h2>
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-tab active" data-cat="vse">Vše</button>
+      <button class="filter-tab" data-cat="nahrdelniky">Náhrdelníky</button>
+      <button class="filter-tab" data-cat="nausnice">Náušnice</button>
+      <button class="filter-tab" data-cat="naramky">Náramky</button>
+      <button class="filter-tab" data-cat="soupravy">Sety</button>
+    </div>
+  </div>
+  <p class="filter-info" id="filterInfo" hidden></p>
+  <div class="products-grid" id="productsGrid"></div>
+  <div class="load-more-wrap">
+    <button class="btn-load-more" id="btnLoadMore" data-action="loadMore" style="display:none">Zobrazit další</button>
+    <button class="btn-collapse" id="btnCollapse" data-action="collapseProducts" style="display:none">Sbalit</button>
+  </div>
+</section>
+
+<!-- ═══ O SÁGA ART ═══ -->
+<section class="about" id="o-saga-art">
+  <div class="about-img"><div class="ph" style="--ph1:#f9e4e6;--ph2:#e7b3ba">%PEARL%</div></div>
+  <div class="about-content">
+    <div class="section-header">
+      <span class="section-tag">✦ O Sága Art</span>
+      <h2 class="section-title">Vítejte v <em>Sága Art</em></h2>
+    </div>
+    <div class="about-text">
+      <p>Tvořím ručně vyráběné šperky z pravých říčních perel, přírodních minerálů a chirurgické či nerezové oceli. Každý šperk vzniká s důrazem na detail, kvalitu a možnost nosit jej po svém a vytvářet s ním svůj vlastní příběh.</p>
+      <p>Sága Art vychází z přesvědčení, že šperk nemá ženu měnit ani něco skrývat. Má podtrhnout právě to, co se sama rozhodne ukázat.</p>
+      <p class="about-quote">Každý šperk má svůj příběh. Ten další mu dává žena, která si ho vybere.</p>
+      <p class="about-sign">Sága Art — žít naplno a zářit po svém.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MATERIÁLY ═══ -->
+<section class="materials">
+  <div class="section-header">
+    <span class="section-tag">✦ Z čeho tvořím</span>
+    <h2 class="section-title">Poctivé <em>materiály</em></h2>
+  </div>
+  <div class="mat-grid">
+    <div class="mat-card">
+      <div class="mat-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" fill="url(#pg)" stroke="#dcb9bb"/></svg></div>
+      <h3>Pravé říční perly</h3>
+      <p>Kultivované sladkovodní perly — každá trochu jiná, často nepravidelná. Právě proto je každý šperk jedinečný.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-icon"><svg viewBox="0 0 32 32"><path d="M16 4 L26 13 L16 28 L6 13 Z" fill="url(#gg)" stroke="#6f9a83"/></svg></div>
+      <h3>Přírodní minerály</h3>
+      <p>Amazonit, akvamarín, růženín a další kameny ve svých přirozených odstínech — žádné plastové napodobeniny.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-icon"><svg viewBox="0 0 32 32" fill="none" stroke="#b8956a" stroke-width="1.6"><circle cx="12" cy="16" r="6"/><circle cx="20" cy="16" r="6"/></svg></div>
+      <h3>Chirurgická a nerezová ocel</h3>
+      <p>Řetízky, zapínání i háčky z oceli, která nečerná, nezelená a je šetrná i k citlivé pokožce.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DOPRAVA ═══ -->
+<section class="shipping-info-sec" id="doprava">
+  <div class="section-header">
+    <span class="section-tag">✦ Způsob dopravy</span>
+    <h2 class="section-title">Pečlivě zabaleno, <em>bezpečně doručeno</em></h2>
+  </div>
+  <div class="ship-grid" id="shipGrid"></div>
+  <p class="ship-note">Šperky jsou pečlivě zabaleny a zaslány po platbě předem.<br>Konkrétní místo doručení upřesníme při vyřízení objednávky.</p>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="newsletter">
+  <div class="section-header" style="margin-bottom:0">
+    <span class="section-tag">✦ Buďte první</span>
+    <h2 class="section-title">Nové kolekce a <em>inspirace</em></h2>
+  </div>
+  <p class="newsletter-desc">Přihlaste se k odběru a dozvíte se jako první o nových šperkách a kolekcích.</p>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" class="newsletter-input" placeholder="váš@email.cz" required>
+    <button type="submit" class="newsletter-submit">Odebírat</button>
+  </form>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="kontakt">
+  <div class="footer-brand">
+    <a href="#" class="nav-logo">Sága <em>Art</em></a>
+    <p class="footer-desc">Ručně vyráběné šperky z pravých říčních perel, přírodních minerálů a nerezové oceli.<br>Žít naplno a zářit po svém.</p>
+  </div>
+  <div class="footer-col"><h4>Šperky</h4><ul>
+    <li><a href="#produkty" data-filter="nahrdelniky">Náhrdelníky</a></li>
+    <li><a href="#produkty" data-filter="nausnice">Náušnice</a></li>
+    <li><a href="#produkty" data-filter="naramky">Náramky</a></li>
+    <li><a href="#produkty" data-filter="soupravy">Sety</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>Info</h4><ul>
+    <li><a href="#o-saga-art">O Sága Art</a></li>
+    <li><a href="#doprava">Doprava a platba</a></li>
+    <li><a href="#">Obchodní podmínky</a></li>
+    <li><a href="#">Péče o šperky</a></li>
+  </ul></div>
+  <div class="footer-col"><h4>Kontakt</h4><ul>
+    <li><a href="mailto:info@sagaart.cz">info@sagaart.cz</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">Facebook</a></li>
+    <li><a href="https://www.fler.cz/sagaart" target="_blank" rel="noopener">Fler</a></li>
+  </ul></div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Sága Art · sagaart.cz</p>
+  <p>Vytvořil Petr Brož · www.broz-petr.cz</p>
+</div>
+
+<!-- ═══ KOŠÍK ═══ -->
+<div class="cart-overlay" id="cartOverlay" data-action="closeCartOutside">
+  <div class="cart-panel">
+    <div class="cart-panel-inner">
+      <div class="cart-header">
+        <h2 class="cart-title">Váš košík</h2>
+        <button class="cart-close" data-action="toggleCart" aria-label="Zavřít">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div id="cartFooterBox" style="display:none">
+        <div class="cart-footer-box">
+          <div class="cart-summary-row"><span>Mezisoučet</span><span id="cartSubtotal">0 Kč</span></div>
+          <div class="cart-summary-row"><span>Doprava</span><span>od 109 Kč</span></div>
+          <div class="cart-total-row"><span>Celkem bez dopravy</span><span id="cartTotal">0 Kč</span></div>
+          <button class="btn-next" data-action="startCheckout" style="width:100%">Přejít k objednávce →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DETAIL PRODUKTU ═══ -->
+<div class="pdetail-overlay" id="pdetailOverlay" data-action="closePdetailOutside">
+  <div class="pdetail-box">
+    <button class="pdetail-close" data-action="closePdetail" aria-label="Zavřít">✕</button>
+    <div class="pdetail-gallery" id="pdetailGallery">
+      <div class="pdetail-slides" id="pdetailSlides"></div>
+      <button class="pdetail-prev" data-action="slideGallery" data-arg="-1" aria-label="Předchozí">‹</button>
+      <button class="pdetail-next" data-action="slideGallery" data-arg="1" aria-label="Další">›</button>
+      <div class="pdetail-dots" id="pdetailDots"></div>
+    </div>
+    <div class="pdetail-info" id="pdetailInfo"></div>
+  </div>
+</div>
+
+<!-- ═══ CHECKOUT (4 kroky) ═══ -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <button class="modal-close" data-action="closeCheckout" aria-label="Zavřít">✕</button>
+
+    <div id="stepsHead">
+      <div class="steps-indicator">
+        <div class="step-dot active" id="dot1">1</div><div class="step-line" id="line1"></div>
+        <div class="step-dot" id="dot2">2</div><div class="step-line" id="line2"></div>
+        <div class="step-dot" id="dot3">3</div><div class="step-line" id="line3"></div>
+        <div class="step-dot" id="dot4">4</div>
+      </div>
+      <div class="steps-labels"><span>Kontakt</span><span>Doprava</span><span>Platba</span><span>Shrnutí</span></div>
+    </div>
+
+    <!-- KROK 1 -->
+    <div class="modal-step active" id="step1">
+      <h2 class="modal-step-title">Kontaktní údaje</h2>
+      <p class="modal-step-sub">Vyplňte prosím vaše doručovací informace</p>
+      <div class="form-row">
+        <div class="form-group"><label for="f_jmeno">Jméno *</label><input type="text" id="f_jmeno" autocomplete="given-name" placeholder="Jana"></div>
+        <div class="form-group"><label for="f_prijmeni">Příjmení *</label><input type="text" id="f_prijmeni" autocomplete="family-name" placeholder="Nováková"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="f_email">E-mail *</label><input type="email" id="f_email" autocomplete="email" placeholder="jana@email.cz"></div>
+        <div class="form-group"><label for="f_telefon">Telefon *</label><input type="tel" id="f_telefon" autocomplete="tel" placeholder="+420 777 123 456"></div>
+      </div>
+      <div class="form-row single">
+        <div class="form-group"><label for="f_ulice">Ulice a číslo popisné *</label><input type="text" id="f_ulice" autocomplete="street-address" placeholder="Náměstí Míru 12"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="f_mesto">Město *</label><input type="text" id="f_mesto" autocomplete="address-level2" placeholder="Praha"></div>
+        <div class="form-group"><label for="f_psc">PSČ *</label><input type="text" id="f_psc" autocomplete="postal-code" placeholder="110 00"></div>
+      </div>
+      <div class="form-row single">
+        <div class="form-group"><label for="f_zeme">Země *</label>
+          <select id="f_zeme"><option value="CZ">Česká republika</option><option value="SK">Slovensko</option></select>
+        </div>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="f_website">Web</label><input type="text" id="f_website" tabindex="-1" autocomplete="off"></div>
+      <div class="form-row single">
+        <div class="form-group"><label for="f_poznamka">Poznámka k objednávce</label><textarea id="f_poznamka" placeholder="Např. preferované výdejní místo, věnování k dárku…"></textarea></div>
+      </div>
+      <div class="modal-nav">
+        <button class="btn-next" data-action="goToStep2">Pokračovat — Doprava →</button>
+      </div>
+    </div>
+
+    <!-- KROK 2 -->
+    <div class="modal-step" id="step2">
+      <h2 class="modal-step-title">Způsob doručení</h2>
+      <p class="modal-step-sub">Zvolte, jak chcete šperk dostat</p>
+      <div class="opt-list" id="shippingOptions"></div>
+      <div class="order-summary" id="orderSummaryStep2"></div>
+      <div class="modal-nav">
+        <button class="btn-back" data-action="goToStep" data-arg="1">← Zpět</button>
+        <button class="btn-next" id="btnStep2Next" data-action="goToStep3" disabled>Pokračovat — Platba →</button>
+      </div>
+    </div>
+
+    <!-- KROK 3 -->
+    <div class="modal-step" id="step3">
+      <h2 class="modal-step-title">Způsob platby</h2>
+      <p class="modal-step-sub">Šperky odesíláme po platbě předem</p>
+      <div class="opt-list">
+        <div class="opt" id="pay_card" data-action="selectPayment" data-arg="card">
+          <div class="opt-radio"></div><div class="opt-icon">💳</div>
+          <div class="opt-info"><div class="opt-name">Platební karta online</div><div class="opt-desc">Visa, Mastercard, Apple Pay, Google Pay · zabezpečeno přes Stripe</div></div>
+          <div class="opt-price">0 Kč</div>
+        </div>
+        <div class="opt" id="pay_transfer" data-action="selectPayment" data-arg="transfer">
+          <div class="opt-radio"></div><div class="opt-icon">🏦</div>
+          <div class="opt-info"><div class="opt-name">Bankovní převod předem</div><div class="opt-desc">Platební údaje uvidíte po dokončení objednávky a přijdou vám e-mailem</div></div>
+          <div class="opt-price">0 Kč</div>
+        </div>
+      </div>
+      <div class="order-summary" id="orderSummaryStep3"></div>
+      <div class="modal-nav">
+        <button class="btn-back" data-action="goToStep" data-arg="2">← Zpět</button>
+        <button class="btn-next" id="btnStep3Next" data-action="goToStep4" disabled>Pokračovat — Shrnutí →</button>
+      </div>
+    </div>
+
+    <!-- KROK 4 -->
+    <div class="modal-step" id="step4">
+      <h2 class="modal-step-title">Shrnutí objednávky</h2>
+      <p class="modal-step-sub">Zkontrolujte prosím všechny údaje</p>
+      <div class="review-section"><h4>Doručovací údaje <span class="review-edit" data-action="goToStep" data-arg="1">Upravit</span></h4><div class="review-block" id="reviewContact"></div></div>
+      <div class="review-section"><h4>Doprava <span class="review-edit" data-action="goToStep" data-arg="2">Upravit</span></h4><div class="review-block" id="reviewShipping"></div></div>
+      <div class="review-section"><h4>Platba <span class="review-edit" data-action="goToStep" data-arg="3">Upravit</span></h4><div class="review-block" id="reviewPayment"></div></div>
+      <div class="review-section"><h4>Šperky</h4><div class="order-summary" id="orderSummaryFinal"></div></div>
+      <label class="consent" id="consentWrap"><input type="checkbox" id="f_souhlas"> Souhlasím s obchodními podmínkami a zpracováním osobních údajů pro vyřízení objednávky.</label>
+      <div class="modal-nav">
+        <button class="btn-back" data-action="goToStep" data-arg="3">← Zpět</button>
+        <button class="btn-next" id="btnConfirm" data-action="confirmOrder">✓ Objednat s povinností platby</button>
+      </div>
+    </div>
+
+    <!-- HOTOVO -->
+    <div class="modal-step" id="stepSuccess">
+      <div class="success-screen">
+        <div class="success-icon">🤍</div>
+        <h2 class="success-title">Děkuji za objednávku!</h2>
+        <p class="success-sub" id="successText">Potvrzení jsem odeslala na váš e-mail. Brzy se vám ozvu ohledně odeslání.</p>
+        <div class="success-order-num">Číslo objednávky: <span id="successOrderNum">#SA-000000</span></div>
+        <div class="bank-box" id="bankBox" hidden></div>
+        <button class="btn-primary" data-action="closeCheckout">Zpět do obchodu</button>
+      </div>
+    </div>
+
+    <!-- PŘESMĚROVÁNÍ NA STRIPE -->
+    <div class="modal-step" id="stepLoading">
+      <div class="stripe-loading">
+        <div class="spinner"></div>
+        <p style="color:var(--text-light);font-size:.88rem;">Přesměrováváme na bezpečnou platbu…</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="notification" id="notification"></div>
+
+<script src="/js/shop.js" defer></script>
+</body>
+</html>

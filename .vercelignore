@@ -1,0 +1,4 @@
+scripts/
+*.md
+firestore.rules
+.env*

@@ -1,0 +1,306 @@
+[
+ {
+  "id": "charlotte-set",
+  "cat": "soupravy",
+  "collection": "Charlotte",
+  "name": "Charlotte SET",
+  "price": 2009,
+  "badge": "Set",
+  "material": "Amazonit · pravé říční perly · nerezová ocel",
+  "desc": "Tři šperky, jeden sladěný příběh. Set náhrdelníku, náramku a náušnic s přírodním amazonitem a pravými kultivovanými říčními perlami.",
+  "props": {
+   "Obsahuje": "Náhrdelník, náramek, náušnice",
+   "Materiál": "Přírodní amazonit, říční perly",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T12:00:00.000Z"
+ },
+ {
+  "id": "charlotte-nausnice",
+  "cat": "nausnice",
+  "collection": "Charlotte",
+  "name": "Charlotte náušnice",
+  "price": 521,
+  "badge": "",
+  "material": "Amazonit · říční perly · kroužky z nerezové oceli",
+  "desc": "Jemný odstín amazonitu a přirozený lesk pravých říčních perel. Visací kroužkové náušnice, které doplní každodenní i sváteční outfit.",
+  "props": {
+   "Materiál": "Přírodní amazonit, říční perly",
+   "Typ": "Visací kroužkové",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:59:00.000Z"
+ },
+ {
+  "id": "charlotte-naramek",
+  "cat": "naramky",
+  "collection": "Charlotte",
+  "name": "Charlotte náramek",
+  "price": 788,
+  "badge": "",
+  "material": "Amazonit · říční perly · čtyřlístek",
+  "desc": "Jemné odstíny přírodního amazonitu, lesk pravých říčních perel a drobný čtyřlístek. Nastavitelný náramek s posuvným zapínáním.",
+  "props": {
+   "Materiál": "Přírodní amazonit, říční perly",
+   "Zapínání": "Posuvné, nastavitelné",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:58:00.000Z"
+ },
+ {
+  "id": "charlotte-nahrdelnik",
+  "cat": "nahrdelniky",
+  "collection": "Charlotte",
+  "name": "Charlotte náhrdelník",
+  "price": 987,
+  "badge": "",
+  "material": "Amazonit · říční perly · čtyřlístek",
+  "desc": "Jemné odstíny amazonitu, lesk pravých říčních perel a přívěsek čtyřlístku. Náhrdelník, který přináší klid i kousek štěstí.",
+  "props": {
+   "Materiál": "Přírodní amazonit, říční perly",
+   "Přívěsek": "Čtyřlístek",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:57:00.000Z"
+ },
+ {
+  "id": "silver-pearl",
+  "cat": "nahrdelniky",
+  "collection": "Pearl",
+  "name": "Silver Pearl",
+  "price": 1221,
+  "badge": "Autorský",
+  "material": "Pravé říční perly · nerezová ocel ve stříbrné",
+  "desc": "Ručně vyráběný autorský vrstvený náhrdelník z pravých říčních perel a nerezové oceli ve stříbrné barvě.",
+  "props": {
+   "Materiál": "Pravé říční perly",
+   "Styl": "Vrstvený, dvojitý",
+   "Kov": "Nerezová ocel, stříbrná",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:56:00.000Z"
+ },
+ {
+  "id": "charlotte-nausnice-rose",
+  "cat": "nausnice",
+  "collection": "Charlotte",
+  "name": "Charlotte náušnice Rose",
+  "price": 577,
+  "badge": "",
+  "material": "Sladkovodní perly · nerezová ocel ve zlaté",
+  "desc": "Náušnice Rose propojují jemný lesk pravých sladkovodních perel se zlatou barvou nerezové oceli. Perly jsou skutečně nepravidelné — každý pár je jiný.",
+  "props": {
+   "Materiál": "Pravé sladkovodní perly",
+   "Háčky": "Nerezové",
+   "Kov": "Nerezová ocel, zlatá",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:55:00.000Z"
+ },
+ {
+  "id": "charlotte-nahrdelnik-rose",
+  "cat": "nahrdelniky",
+  "collection": "Charlotte",
+  "name": "Charlotte náhrdelník Rose",
+  "price": 1320,
+  "badge": "",
+  "material": "Růženín · nepravidelné perly · pozlacená ocel",
+  "desc": "Jemný náhrdelník se zlomky růženínu a pravými perlami. Perly jsou výrazně nepravidelné, doplněné přívěskem s pravou perlou.",
+  "props": {
+   "Materiál": "Zlomky růženínu, pravé perly",
+   "Přívěsek": "Pravá perla",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:54:00.000Z"
+ },
+ {
+  "id": "pure-silver-heart",
+  "cat": "nahrdelniky",
+  "collection": "Pure",
+  "name": "Pure Silver Heart",
+  "price": 1387,
+  "badge": "",
+  "material": "Říční perly · nerezový řetízek se srdíčkem",
+  "desc": "Vrstvený náhrdelník z říčních perel. Z perlové části vychází jemný nerezový řetízek s nerezovým srdíčkem.",
+  "props": {
+   "Materiál": "Říční perly",
+   "Přívěsek": "Nerezové srdíčko",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:53:00.000Z"
+ },
+ {
+  "id": "pure-nausnice",
+  "cat": "nausnice",
+  "collection": "Pure",
+  "name": "Pure náušnice",
+  "price": 610,
+  "badge": "",
+  "material": "Nepravidelné říční perly · nerezová puzeta",
+  "desc": "Perlové náušnice pro váš příběh. Říční perly zavěšené pod nerezovou puzetou — perly jsou opravdu nepravidelné, každý kus je originál.",
+  "props": {
+   "Materiál": "Nepravidelné říční perly",
+   "Typ": "Puzeta s visací perlou",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:52:00.000Z"
+ },
+ {
+  "id": "pure-nahrdelnik",
+  "cat": "nahrdelniky",
+  "collection": "Pure",
+  "name": "Pure náhrdelník",
+  "price": 1653,
+  "badge": "",
+  "material": "Drobné i výrazné říční perly · nerezová ocel",
+  "desc": "Jemný příběh z perel. Náhrdelník Pure spojuje drobné říční perly s výraznějšími nepravidelnými perlami.",
+  "props": {
+   "Materiál": "Říční perly",
+   "Styl": "Perlový náhrdelník",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:51:00.000Z"
+ },
+ {
+  "id": "more-medvidek-nausnice",
+  "cat": "nausnice",
+  "collection": "Moře",
+  "name": "Moře medvídek náušnice",
+  "price": 499,
+  "badge": "",
+  "material": "Akvamarín · říční perly · nerezová ocel",
+  "desc": "Vzpomínka na léto u moře. Světle modrý akvamarín a říční perly tvoří jemné náušnice, které doplňují náhrdelník Moře medvídek.",
+  "props": {
+   "Materiál": "Akvamarín, říční perly",
+   "Kov": "Nerezová ocel",
+   "Set": "Moře medvídek",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:50:00.000Z"
+ },
+ {
+  "id": "more-medvidek",
+  "cat": "nahrdelniky",
+  "collection": "Moře",
+  "name": "Moře medvídek",
+  "price": 1542,
+  "badge": "",
+  "material": "Akvamarín · říční perly · medvídek z růženínu",
+  "desc": "Jemný hravý příběh moře. Modré tóny akvamarínu se setkávají s říčními perlami a medvídkem z růžového křemene.",
+  "props": {
+   "Materiál": "Akvamarín, říční perly",
+   "Přívěsek": "Medvídek z růženínu",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:49:00.000Z"
+ },
+ {
+  "id": "more-kvet-nausnice",
+  "cat": "nausnice",
+  "collection": "Moře",
+  "name": "Moře Květ náušnice",
+  "price": 555,
+  "badge": "",
+  "material": "Zlomky akvamarínu · pravé říční perly",
+  "desc": "Náušnice ze zlomků přírodního akvamarínu a pravých říčních perel. Ladí s náhrdelníkem Moře Květ.",
+  "props": {
+   "Materiál": "Přírodní akvamarín, říční perly",
+   "Typ": "Visací",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:48:00.000Z"
+ },
+ {
+  "id": "more-kvet-nahrdelnik",
+  "cat": "nahrdelniky",
+  "collection": "Moře",
+  "name": "Moře Květ náhrdelník",
+  "price": 1520,
+  "badge": "",
+  "material": "Akvamarín · říční perly · přívěsek květ",
+  "desc": "Jemnost perel, svěží odstíny akvamarínu a drobný květ uprostřed. Náhrdelník spojuje nepravidelné perly se zlomky akvamarínu.",
+  "props": {
+   "Materiál": "Akvamarín, říční perly",
+   "Přívěsek": "Květ",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:47:00.000Z"
+ },
+ {
+  "id": "more-nausnice",
+  "cat": "nausnice",
+  "collection": "Moře",
+  "name": "Moře náušnice",
+  "price": 532,
+  "badge": "",
+  "material": "Podlouhlé říční perly · nerezová ocel",
+  "desc": "Náušnice Moře navazují na stejnojmenný náhrdelník a společně vytvářejí jemný set inspirovaný barvami moře.",
+  "props": {
+   "Materiál": "Pravé říční perly",
+   "Typ": "Visací",
+   "Kov": "Nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:46:00.000Z"
+ },
+ {
+  "id": "more",
+  "cat": "nahrdelniky",
+  "collection": "Moře",
+  "name": "Moře",
+  "price": 1332,
+  "badge": "",
+  "material": "Akvamarín · pravé říční perly · nerezová ocel",
+  "desc": "Náhrdelník Moře zachycuje barvy, lehkost a klid mořské hladiny. Jemné akvamarínové korálky ve světle modrých tónech doplňují pravé říční perly.",
+  "props": {
+   "Materiál": "Akvamarín, pravé říční perly",
+   "Kov": "Nerezová ocel",
+   "Set": "Moře",
+   "Dodání": "Ihned"
+  },
+  "imgs": [],
+  "inStock": true,
+  "createdAt": "2026-10-03T11:45:00.000Z"
+ }
+]

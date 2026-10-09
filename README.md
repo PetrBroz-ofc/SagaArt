@@ -2,12 +2,23 @@
 
 Ručně vyráběné šperky z pravých říčních perel, minerálů a nerezové oceli.
 
-- `index.html` — obchod (kolekce, filtr, detail šperku, košík, 4krokový checkout)
-- `admin.html` — správa šperků (heslo z `ADMIN_PASSWORD`)
-- `api/` — Vercel serverless funkce (Stripe, Firestore, JWT)
+```
+public/            statický web (jediné, co Vercel servíruje)
+  index.html       obchod — kolekce, filtr, detail, košík, 4krokový checkout
+  admin.html       správa šperků (heslo + 2FA)
+  css/ js/         styly a skripty (žádný inline JS kvůli CSP)
+  data/products.json  výchozí šperky (seed + náhled bez serveru)
+api/               Vercel serverless funkce
+  order.js         vytvoření objednávky (karta → Stripe, převod → e-mail)
+  stripe-webhook.js  potvrzení platby
+  auth.js          přihlášení / odhlášení adminu
+  products.js      správa šperků (admin)
+  upload-sign.js   podepsané nahrání fotek (admin)
+scripts/           pomocné skripty (heslo, 2FA, seed) — nenasazují se
+vercel.json        bezpečnostní hlavičky (CSP, HSTS…)
+firestore.rules    zákaz přímého přístupu k databázi
+```
 
-## Před spuštěním doplnit
-- `index.html` → `CONFIG`: EmailJS klíče, e-mail majitelky, číslo účtu / IBAN
-- `admin.html` → `CLOUDINARY_CLOUD`, `CLOUDINARY_PRESET`
-- Vercel env proměnné — viz `SECURITY.md`
-- Ceny dopravy jsou ve dvou místech: `SHIPPING` v `index.html` a v `api/checkout.js`
+Nastavení a bezpečnost: viz [SECURITY.md](SECURITY.md).
+
+Lokální náhled (bez API): `python -m http.server 5530 --directory public`

@@ -1,15 +1,13 @@
-const { getDb } = require('./_utils');
+const { getDb, fail, guard } = require('./_utils');
+const { SHIPPING } = require('./_shop');
 
+// GET /api/products-public — veřejný katalog + ceník dopravy (jen pro čtení).
 export default async function handler(req, res) {
-  // Veřejná data jen pro čtení — otevřený origin je zde v pořádku.
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 's-maxage=60'); // cache 60s
-
-  if (req.method !== 'GET') return res.status(405).end();
+  if (!guard(req, res, ['GET'])) return;
+  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
 
   try {
-    const db = getDb();
-    const snap = await db.collection('products').get();
+    const snap = await getDb().collection('products').where('inStock', '==', true).get();
     const products = snap.docs
       .map(d => {
         const p = d.data();
@@ -22,18 +20,17 @@ export default async function handler(req, res) {
           collection: p.collection || '',
           material: p.material || '',
           desc: p.desc || '',
-          imgs: Array.isArray(p.imgs) ? p.imgs : (p.img ? [p.img] : []),
+          props: p.props || {},
+          imgs: Array.isArray(p.imgs) ? p.imgs : [],
           badge: p.badge || '',
-          inStock: p.inStock !== false,
           createdAt: p.createdAt || '',
         };
       })
-      .filter(p => p.inStock)
-      // nejnovější první, jako na Fleru
-      .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
-    res.status(200).json(products);
+      .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)))
+      .map(({ createdAt, ...p }) => p);
+    res.status(200).json({ products, shipping: SHIPPING });
   } catch (err) {
-    console.error('products-public error:', err);
-    res.status(500).json({ error: 'Interní chyba serveru' });
+    console.error('products-public error:', err.message);
+    fail(res, 500, 'Interní chyba serveru');
   }
 }

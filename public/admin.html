@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sága Art — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <form class="login-box" id="loginForm" autocomplete="on">
+    <div class="login-logo">Sága <span>Art</span></div>
+    <p class="login-sub">Admin panel</p>
+    <label for="loginPass">Heslo</label>
+    <input type="password" id="loginPass" autocomplete="current-password" required maxlength="200"/>
+    <label for="loginTotp">Kód z ověřovací aplikace</label>
+    <input type="text" id="loginTotp" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="123456" required/>
+    <button class="login-btn" type="submit" id="loginBtn">Přihlásit se</button>
+    <p class="login-error" id="loginError"></p>
+  </form>
+</div>
+
+<!-- ADMIN -->
+<div id="adminScreen">
+  <nav class="admin-nav">
+    <div class="admin-nav-logo">Sága <span>Art</span> <small class="nav-sub">Admin</small></div>
+    <div class="admin-nav-right">
+      <button class="admin-logout" data-action="logout">Odhlásit</button>
+    </div>
+  </nav>
+
+  <div class="admin-body">
+    <div class="stats">
+      <div class="stat-card"><div class="stat-num" id="statTotal">—</div><div class="stat-label">Šperků celkem</div></div>
+      <div class="stat-card"><div class="stat-num" id="statInStock">—</div><div class="stat-label">Skladem</div></div>
+      <div class="stat-card"><div class="stat-num" id="statCollections">—</div><div class="stat-label">Kolekcí</div></div>
+    </div>
+
+    <div class="toolbar">
+      <h2>Správa šperků</h2>
+      <button class="btn-add" data-action="openModal">+ Přidat šperk</button>
+    </div>
+
+    <div class="products-table">
+      <div class="table-header"><div>Foto</div><div>Název</div><div>Cena</div><div>Kategorie</div><div>Sklad</div><div>Akce</div></div>
+      <div id="productsList"><div class="loading">Načítám šperky…</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" data-action="closeModalOutside">
+  <form class="modal-box" id="productForm" novalidate>
+    <button type="button" class="modal-close" data-action="closeModal" aria-label="Zavřít">✕</button>
+    <div class="modal-title" id="modalTitle">Nový šperk</div>
+    <div class="form-grid">
+      <div class="form-group full">
+        <label for="fName">Název šperku</label>
+        <input type="text" id="fName" maxlength="200" placeholder="např. Charlotte náhrdelník"/>
+      </div>
+      <div class="form-group">
+        <label for="fPrice">Cena (Kč)</label>
+        <input type="number" id="fPrice" min="1" max="1000000" step="1" placeholder="987"/>
+      </div>
+      <div class="form-group">
+        <label for="fCat">Kategorie</label>
+        <select id="fCat">
+          <option value="nahrdelniky">Náhrdelníky</option>
+          <option value="nausnice">Náušnice</option>
+          <option value="naramky">Náramky</option>
+          <option value="soupravy">Sety</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label for="fCollection">Kolekce</label>
+        <input type="text" id="fCollection" list="collectionList" maxlength="60" placeholder="např. Charlotte"/>
+        <datalist id="collectionList">
+          <option value="Charlotte"></option><option value="Pure"></option>
+          <option value="Moře"></option><option value="Pearl"></option>
+        </datalist>
+      </div>
+      <div class="form-group full">
+        <label for="fMaterial">Materiál / popis pod názvem</label>
+        <input type="text" id="fMaterial" maxlength="300" placeholder="např. Amazonit · říční perly · nerezová ocel"/>
+      </div>
+      <div class="form-group full">
+        <label for="fDesc">Popis</label>
+        <textarea id="fDesc" maxlength="3000" placeholder="Popis šperku…"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>Fotky (první = hlavní, max. 10, JPG/PNG/WebP do 10 MB)</label>
+        <input type="file" id="fImgFile" accept="image/jpeg,image/png,image/webp" multiple hidden/>
+        <button type="button" class="upload-btn" data-action="pickFiles">📷 Nahrát fotky z telefonu / PC</button>
+        <p class="upload-progress" id="uploadProgress"></p>
+        <div id="imgPreview" class="img-previews"></div>
+      </div>
+      <div class="form-group">
+        <label for="fBadge">Štítek (nepovinné)</label>
+        <input type="text" id="fBadge" maxlength="40" placeholder="např. Novinka, Set"/>
+      </div>
+      <div class="form-group">
+        <label for="fStock">Skladem</label>
+        <select id="fStock">
+          <option value="true">Ano — skladem</option>
+          <option value="false">Ne — prodáno</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn-cancel" data-action="closeModal">Zrušit</button>
+      <button type="submit" class="btn-save" id="saveBtn">Uložit šperk</button>
+    </div>
+  </form>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/js/admin.js" defer></script>
+</body>
+</html>
