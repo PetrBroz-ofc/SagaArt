@@ -1,0 +1,9 @@
+{
+  "name": "saga-art",
+  "version": "1.0.0",
+  "dependencies": {
+    "stripe": "^14.0.0",
+    "firebase-admin": "^12.0.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
