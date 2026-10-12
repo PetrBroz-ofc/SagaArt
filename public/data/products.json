@@ -26,7 +26,7 @@
   "price": 521,
   "badge": "",
   "material": "Amazonit · říční perly · kroužky z nerezové oceli",
-  "desc": "Jemný odstín amazonitu a přirozený lesk pravých říčních perel. Visací kroužkové náušnice, které doplní každodenní i sváteční outfit.",
+  "desc": "Jemný odstín amazonitu a přirozený lesk pravých říčních perel. Visací kroužkové náušnice z nerezové oceli.",
   "props": {
    "Materiál": "Přírodní amazonit, říční perly",
    "Typ": "Visací kroužkové",
@@ -64,7 +64,7 @@
   "price": 987,
   "badge": "",
   "material": "Amazonit · říční perly · čtyřlístek",
-  "desc": "Jemné odstíny amazonitu, lesk pravých říčních perel a přívěsek čtyřlístku. Náhrdelník, který přináší klid i kousek štěstí.",
+  "desc": "Jemné odstíny amazonitu, lesk pravých říčních perel a přívěsek čtyřlístku na řetízku z nerezové oceli.",
   "props": {
    "Materiál": "Přírodní amazonit, říční perly",
    "Přívěsek": "Čtyřlístek",
@@ -102,7 +102,7 @@
   "price": 577,
   "badge": "",
   "material": "Sladkovodní perly · nerezová ocel ve zlaté",
-  "desc": "Náušnice Rose propojují jemný lesk pravých sladkovodních perel se zlatou barvou nerezové oceli. Perly jsou skutečně nepravidelné — každý pár je jiný.",
+  "desc": "Náušnice Rose propojují jemný lesk pravých sladkovodních perel se zlatou barvou nerezové oceli. Perly jsou opravdu nepravidelné, takže každý pár vypadá trochu jinak.",
   "props": {
    "Materiál": "Pravé sladkovodní perly",
    "Háčky": "Nerezové",
@@ -159,7 +159,7 @@
   "price": 610,
   "badge": "",
   "material": "Nepravidelné říční perly · nerezová puzeta",
-  "desc": "Perlové náušnice pro váš příběh. Říční perly zavěšené pod nerezovou puzetou — perly jsou opravdu nepravidelné, každý kus je originál.",
+  "desc": "Perlové náušnice pro váš příběh. Říční perly visí pod nerezovou puzetou a jsou opravdu nepravidelné, takže každý pár vypadá trochu jinak.",
   "props": {
    "Materiál": "Nepravidelné říční perly",
    "Typ": "Puzeta s visací perlou",

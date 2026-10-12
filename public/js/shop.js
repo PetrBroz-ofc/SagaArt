@@ -12,22 +12,22 @@ const $ = id => document.getElementById(id);
 
 // Doprava — jen pro zobrazení. Ceny při objednávce počítá server (api/_shop.js).
 let SHIPPING = {
-  zasilkovna: { name:'Zásilkovna — výdejní místo / Z-BOX', price:109, country:'CZ' },
-  balikovna:  { name:'Česká pošta — Balíkovna',            price:109, country:'CZ' },
-  posta:      { name:'Česká pošta — na adresu',            price:130, country:'CZ' },
-  packeta_sk: { name:'Packeta — Slovensko',                price:130, country:'SK' },
+  zasilkovna: { name:'Zásilkovna, výdejní místo nebo Z-BOX', price:109, country:'CZ' },
+  balikovna:  { name:'Česká pošta, Balíkovna',            price:109, country:'CZ' },
+  posta:      { name:'Česká pošta na adresu',            price:130, country:'CZ' },
+  packeta_sk: { name:'Packeta na Slovensko',                price:130, country:'SK' },
 };
 const SHIP_META = {
-  zasilkovna: { icon:'📦', desc:'Doručení na výdejní místo nebo do Z-BOXu · 2–3 pracovní dny' },
-  balikovna:  { icon:'📮', desc:'Vyzvednutí na pobočce Balíkovny · 2–3 pracovní dny' },
-  posta:      { icon:'🏠', desc:'Doručení až domů · 2–3 pracovní dny' },
-  packeta_sk: { icon:'🇸🇰', desc:'Výdejní místo nebo Z-BOX na Slovensku · 3–5 pracovních dnů' },
+  zasilkovna: { icon:'📦', desc:'Doručení na výdejní místo Zásilkovny nebo do Z-BOXu' },
+  balikovna:  { icon:'📮', desc:'Vyzvednutí na pobočce Balíkovny' },
+  posta:      { icon:'🏠', desc:'Doručení až domů' },
+  packeta_sk: { icon:'🇸🇰', desc:'Výdejní místo nebo Z-BOX na Slovensku' },
 };
 
 // Kolekce — barvy placeholderů odpovídají kamenům
 const COLLECTIONS = {
   Charlotte: { desc:'Jemný amazonit, pravé říční perly a čtyřlístek pro štěstí.', ph1:'#e3f1ec', ph2:'#a7cfc1', gem:'#9cc9b9' },
-  Pure:      { desc:'Čistota perel — nepravidelné říční perly a nerezové detaily.', ph1:'#fbf1ef', ph2:'#e8c9c6', gem:'' },
+  Pure:      { desc:'Nepravidelné říční perly s jemnými nerezovými detaily.', ph1:'#fbf1ef', ph2:'#e8c9c6', gem:'' },
   'Moře':    { desc:'Barvy, lehkost a klid mořské hladiny v odstínech akvamarínu.', ph1:'#e5f0f5', ph2:'#a9c8d8', gem:'#a3c8da' },
   Pearl:     { desc:'Vrstvené perlové náhrdelníky v kombinaci se stříbřitou ocelí.', ph1:'#f4f1f1', ph2:'#d6cdcf', gem:'' },
 };
@@ -217,7 +217,7 @@ function addToCart(id, btn) {
   if (existing) existing.qty = Math.min(10, existing.qty + 1);
   else cart.push({ id, qty:1 });
   cartChanged();
-  showNotification(p.name + ' — přidáno do košíku');
+  showNotification(p.name + ' je v košíku');
   if (btn.classList.contains('product-add')) { btn.textContent = '✓'; setTimeout(() => { btn.textContent = '+'; }, 1200); }
 }
 function changeQty(i, d) {

@@ -1,6 +1,6 @@
 # Bezpečnost — Sága Art
 
-Hlášení zranitelností: **brozpetr.bp@gmail.com** (prosím neveřejně, dokud nebude oprava).
+Hlášení zranitelností: **info.pebmedia@gmail.com** (PEBMedia) (prosím neveřejně, dokud nebude oprava).
 
 ## Jak je e-shop chráněný
 

@@ -3,10 +3,10 @@ const { getDb } = require('./_utils');
 
 // Ceník dopravy — JEDINÝ zdroj pravdy. Frontend si ho jen zobrazuje (GET /api/config).
 const SHIPPING = {
-  zasilkovna: { name: 'Zásilkovna — výdejní místo / Z-BOX', price: 109, country: 'CZ' },
-  balikovna:  { name: 'Česká pošta — Balíkovna',            price: 109, country: 'CZ' },
-  posta:      { name: 'Česká pošta — na adresu',            price: 130, country: 'CZ' },
-  packeta_sk: { name: 'Packeta — Slovensko',                price: 130, country: 'SK' },
+  zasilkovna: { name: 'Zásilkovna, výdejní místo nebo Z-BOX', price: 109, country: 'CZ' },
+  balikovna:  { name: 'Česká pošta, Balíkovna',            price: 109, country: 'CZ' },
+  posta:      { name: 'Česká pošta na adresu',            price: 130, country: 'CZ' },
+  packeta_sk: { name: 'Packeta na Slovensko',                price: 130, country: 'SK' },
 };
 const COUNTRIES = { CZ: 'Česká republika', SK: 'Slovensko' };
 const PAYMENTS = { card: 'Platební karta online', transfer: 'Bankovní převod předem' };

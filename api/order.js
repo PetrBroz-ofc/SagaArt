@@ -60,7 +60,7 @@ export default async function handler(req, res) {
           quantity: l.qty,
         })),
         {
-          price_data: { currency: 'czk', product_data: { name: 'Doprava — ' + SHIPPING[shipping].name }, unit_amount: shippingPrice * 100 },
+          price_data: { currency: 'czk', product_data: { name: 'Doprava: ' + SHIPPING[shipping].name }, unit_amount: shippingPrice * 100 },
           quantity: 1,
         },
       ],

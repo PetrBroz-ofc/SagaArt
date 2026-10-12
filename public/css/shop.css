@@ -150,6 +150,8 @@ footer { padding:56px 48px; background:var(--text); display:grid; grid-template-
 .footer-col ul a:hover { color:var(--rose); }
 .footer-bottom { padding:22px 48px; background:var(--text); border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
 .footer-bottom p { font-size:.76rem; color:rgba(255,255,255,.35); }
+.footer-bottom a { color:rgba(255,255,255,.55); text-decoration:none; transition:color .2s; }
+.footer-bottom a:hover { color:var(--rose); }
 
 /* ── KOŠÍK ── */
 .cart-overlay { position:fixed; inset:0; background:rgba(59,42,45,.35); z-index:200; opacity:0; pointer-events:none; transition:opacity .3s; }
