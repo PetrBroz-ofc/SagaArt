@@ -79,8 +79,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-i
 .filter-info { font-size:.82rem; color:var(--text-light); margin:-30px 0 26px; }
 .filter-info button { background:none; border:none; color:var(--deep-rose); text-decoration:underline; cursor:pointer; font-family:inherit; font-size:inherit; }
 .products-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-.product-card { background:white; border-radius:14px; overflow:hidden; transition:box-shadow .2s, transform .2s; cursor:pointer; }
-.product-card:hover { box-shadow:0 10px 30px rgba(185,96,110,.16); transform:translateY(-3px); }
+.product-card { background:white; border-radius:14px; overflow:hidden; transition:box-shadow .25s, transform .45s cubic-bezier(.2,.8,.2,1); cursor:pointer; position:relative; transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px)); }
+.product-card:hover { box-shadow:0 18px 40px rgba(185,96,110,.22); --ty:-4px; }
+.product-card.tilting { transition:box-shadow .25s, transform .08s linear; }
+.product-card::after { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:3; opacity:0; transition:opacity .3s; background:radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.55), rgba(255,228,236,.18) 32%, transparent 60%); mix-blend-mode:soft-light; }
+.product-card.tilting::after { opacity:1; }
 .product-img { aspect-ratio:1; background:var(--blush); position:relative; overflow:hidden; }
 .product-img img, .product-img .ph { width:100%; height:100%; object-fit:cover; display:flex; transition:transform .4s; }
 .product-card:hover .product-img img, .product-card:hover .product-img .ph { transform:scale(1.04); }
@@ -324,3 +327,24 @@ footer { padding:56px 48px; background:var(--text); display:grid; grid-template-
 /* honeypot proti botům — pro lidi neviditelné */
 .hp { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
 .grid-empty { color:var(--text-light); text-align:center; padding:40px; grid-column:1/-1; }
+
+/* ── WebGL hero (js/fx.js) ── */
+.hero { position:relative; isolation:isolate; overflow:hidden; }
+.hero-canvas { position:absolute; inset:0; width:100%; height:100%; display:block; z-index:-2; }
+.hero-gl .hero::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(90deg, rgba(255,250,250,.88) 0%, rgba(255,250,250,.62) 36%, rgba(255,250,250,0) 58%); }
+.hero-gl .hero-right { background:transparent; overflow:visible; }
+.hero-gl .hero-pearls { visibility:hidden; }
+.hero-gl .hero { cursor:crosshair; }
+.hero-gl .hero a, .hero-gl .hero button { cursor:pointer; }
+@media(max-width:1024px) {
+  .hero-gl .hero::before { background:linear-gradient(180deg, rgba(255,250,250,.9) 0%, rgba(255,250,250,.7) 45%, rgba(255,250,250,0) 62%); }
+}
+
+/* ── perličky za kurzorem + let do košíku ── */
+.pearl-trail { position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:150; }
+.fly-pearl { position:fixed; left:0; top:0; width:18px; height:18px; border-radius:50%; pointer-events:none; z-index:500;
+  background:radial-gradient(circle at 35% 30%, #fff 0%, #f8ecea 45%, #d9a9b0 100%); box-shadow:0 4px 14px rgba(185,96,110,.35); }
+@media (prefers-reduced-motion: reduce) {
+  .product-card { transform:none !important; }
+}
