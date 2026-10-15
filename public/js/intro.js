@@ -48,13 +48,14 @@
   }
 
   async function run() {
+    // název vyjede hned, zatímco se dotahují fotky
+    letters.forEach((l, i) => l.animate(
+      [{ transform: 'translateY(110%)' }, { transform: 'none' }],
+      { duration: 900, delay: 100 + i * 45, easing: EASE_OUT, fill: 'backwards' }));
     await Promise.race([decoded, wait(1200)]);
     if (skipping) return;
 
-    // 1) fotky se rychle skládají na sebe, pod nimi vyjede název
-    letters.forEach((l, i) => l.animate(
-      [{ transform: 'translateY(110%)' }, { transform: 'none' }],
-      { duration: 900, delay: 150 + i * 45, easing: EASE_OUT, fill: 'backwards' }));
+    // 1) fotky se rychle skládají na sebe
     cards.forEach((c, i) => {
       const rot = Number(c.dataset.rot || 0);
       c.animate([

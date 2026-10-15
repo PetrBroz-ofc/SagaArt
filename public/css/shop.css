@@ -489,8 +489,8 @@ img { max-width:100%; display:block; }
 
 /* ── ÚVODNÍ ANIMACE (js/intro.js) ── */
 .intro { position:fixed; inset:0; z-index:1000; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; cursor:pointer;
-  /* pojistka: kdyby JS nedoběhl, úvod po 5 s zmizí sám */
-  animation:introFailsafe .3s 5s forwards; }
+  /* pojistka: kdyby JS nedoběhl, úvod po 7 s zmizí sám */
+  animation:introFailsafe .3s 7s forwards; }
 @keyframes introFailsafe { to { opacity:0; visibility:hidden; } }
 .intro-stack { position:relative; width:min(52vw, 290px); aspect-ratio:4/5; }
 .intro-card { position:absolute; inset:0; overflow:hidden; border-radius:3px; opacity:0; background:var(--sand); box-shadow:0 30px 60px -28px rgba(42,34,32,.45); will-change:transform, opacity; }
