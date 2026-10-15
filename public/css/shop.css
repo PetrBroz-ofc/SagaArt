@@ -20,15 +20,90 @@ img { max-width:100%; display:block; }
 .icon { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
 
 /* ── NAV ── */
-nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 48px; background:rgba(248,244,239,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
-.nav-logo { font-family:var(--serif); font-size:1.55rem; font-weight:400; letter-spacing:.01em; color:var(--ink); text-decoration:none; }
+.site-header { position:sticky; top:0; z-index:100; background:rgba(248,244,239,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid transparent; transition:transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s, background .3s; }
+.site-header.scrolled { border-bottom-color:var(--line); }
+.site-header.hidden { transform:translateY(-100%); }
+.site-header.panel-open, .site-header.menu-open { background:var(--bg); }
+.nav { display:flex; align-items:center; justify-content:space-between; gap:24px; max-width:1360px; margin:0 auto; padding:20px 48px; transition:padding .35s cubic-bezier(.2,.8,.2,1); }
+.site-header.scrolled .nav { padding-top:12px; padding-bottom:12px; }
+.nav-logo { font-family:var(--serif); font-size:1.6rem; font-weight:400; letter-spacing:.01em; color:var(--ink); text-decoration:none; transition:font-size .35s; }
+.site-header.scrolled .nav-logo { font-size:1.4rem; }
 .nav-logo em { font-style:italic; color:var(--accent); }
-.nav-links { display:flex; gap:32px; list-style:none; }
-.nav-links a { text-decoration:none; font-size:.92rem; color:var(--ink-2); transition:color .2s; }
-.nav-links a:hover { color:var(--ink); }
-.nav-cart { display:flex; align-items:center; gap:8px; cursor:pointer; font-family:var(--sans); font-size:.92rem; color:var(--ink); background:none; border:none; padding:6px 0; }
+.nav-links { position:relative; display:flex; gap:6px; list-style:none; }
+.nav-link { display:inline-flex; align-items:center; gap:5px; padding:10px 12px; background:none; border:none; font-family:var(--sans); font-size:.95rem; color:var(--ink-2); text-decoration:none; cursor:pointer; transition:color .2s; }
+.nav-link:hover, .nav-link.is-active, .nav-link[aria-expanded="true"] { color:var(--ink); }
+.chev { width:12px; height:12px; fill:none; stroke:currentColor; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; transition:transform .3s; }
+.nav-link[aria-expanded="true"] .chev { transform:rotate(180deg); }
+.nav-indicator { position:absolute; left:0; bottom:2px; height:1px; width:0; background:var(--ink); opacity:0; pointer-events:none; transition:transform .45s cubic-bezier(.2,.8,.2,1), width .45s cubic-bezier(.2,.8,.2,1), opacity .25s; }
+.nav-cart { display:flex; align-items:center; gap:8px; cursor:pointer; font-family:var(--sans); font-size:.95rem; color:var(--ink); background:none; border:none; padding:8px 0; }
 .nav-cart:hover { color:var(--accent); }
 .cart-badge { background:var(--ink); color:var(--bg); border-radius:50%; min-width:20px; height:20px; padding:0 5px; font-size:.7rem; font-weight:500; display:flex; align-items:center; justify-content:center; }
+
+/* hamburger → křížek */
+.nav-burger { display:none; width:44px; height:44px; margin-left:-10px; background:none; border:none; cursor:pointer; position:relative; }
+.nav-burger span { position:absolute; left:11px; right:11px; height:1.5px; background:var(--ink); transition:transform .4s cubic-bezier(.2,.8,.2,1), top .4s cubic-bezier(.2,.8,.2,1); }
+.nav-burger span:first-child { top:17px; }
+.nav-burger span:last-child { top:26px; }
+.nav-burger[aria-expanded="true"] span:first-child { top:21.5px; transform:rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:last-child { top:21.5px; transform:rotate(-45deg); }
+
+/* ── Rozbalovací panely ── */
+.nav-panel { position:absolute; left:0; right:0; top:100%; background:var(--bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line); box-shadow:0 24px 40px -24px rgba(42,34,32,.18); opacity:0; transform:translateY(-8px); transition:opacity .25s, transform .35s cubic-bezier(.2,.8,.2,1); }
+.nav-panel.open { opacity:1; transform:none; }
+.panel-inner { max-width:1360px; margin:0 auto; padding:32px 48px 40px; display:grid; gap:40px; }
+#panelKolekce .panel-inner { grid-template-columns:240px 1fr; }
+.panel-intro p:not(.eyebrow) { color:var(--ink-2); font-size:.95rem; margin-bottom:8px; }
+.panel-intro .eyebrow { margin-bottom:10px; }
+.panel-collections { display:grid; grid-template-columns:repeat(7,1fr); gap:14px; }
+.panel-col { background:none; border:none; padding:0; cursor:pointer; text-align:left; font:inherit; color:var(--ink); opacity:0; transform:translateY(10px); transition:opacity .4s, transform .5s cubic-bezier(.2,.8,.2,1); transition-delay:calc(var(--i) * 35ms); }
+.nav-panel.open .panel-col { opacity:1; transform:none; }
+.panel-col-img { aspect-ratio:3/4; overflow:hidden; border-radius:var(--radius); background:var(--sand); }
+.panel-col-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+.panel-col:hover .panel-col-img img { transform:scale(1.05); }
+.panel-col span { display:block; font-family:var(--serif); font-size:1.08rem; margin-top:8px; }
+.panel-col:hover span { color:var(--accent); }
+#panelSperky .panel-inner { grid-template-columns:1fr 1fr 1fr; align-items:start; }
+.panel-cats { list-style:none; border-top:1px solid var(--line); }
+.panel-cats a { display:flex; justify-content:space-between; align-items:baseline; padding:13px 0; border-bottom:1px solid var(--line); text-decoration:none; color:var(--ink); font-family:var(--serif); font-size:1.35rem; transition:color .2s, padding .3s cubic-bezier(.2,.8,.2,1); }
+.panel-cats a:hover { color:var(--accent); padding-left:8px; }
+.panel-cats small { font-family:var(--sans); font-size:.8rem; color:var(--ink-3); }
+.panel-feature { display:block; text-decoration:none; }
+.panel-feature img { width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius); transition:opacity .3s; }
+.panel-feature:hover img { opacity:.88; }
+.panel-feature .caption { display:block; color:var(--ink-2); }
+.panel-feature:hover .caption { color:var(--ink); }
+
+/* ── Mobilní menu přes celou obrazovku ── */
+.mobile-menu { position:fixed; inset:0; z-index:90; background:var(--bg); padding-top:76px; overflow-y:auto; clip-path:circle(0 at var(--ox,40px) var(--oy,36px)); transition:clip-path .6s cubic-bezier(.7,0,.2,1); }
+.mobile-menu.open { clip-path:circle(150% at var(--ox,40px) var(--oy,36px)); }
+.mobile-menu-inner { min-height:100%; display:flex; flex-direction:column; padding:16px 16px 28px; }
+.mobile-links { list-style:none; border-top:1px solid var(--line); }
+.mobile-links li, .mobile-collections, .mobile-foot { opacity:0; transform:translateY(18px); transition:opacity .4s, transform .55s cubic-bezier(.2,.8,.2,1); transition-delay:0s; }
+.mobile-menu.open .mobile-links li, .mobile-menu.open .mobile-collections, .mobile-menu.open .mobile-foot { opacity:1; transform:none; transition-delay:calc(180ms + var(--i) * 55ms); }
+.mobile-links a { display:block; padding:12px 0; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:2rem; line-height:1.15; color:var(--ink); text-decoration:none; }
+.mobile-links a:active { color:var(--accent); }
+.mobile-collections { display:flex; gap:10px; overflow-x:auto; margin:24px -16px 0; padding:0 16px 6px; scroll-snap-type:x mandatory; scrollbar-width:none; }
+.mobile-collections::-webkit-scrollbar { display:none; }
+.mobile-collections .panel-col { flex:0 0 112px; scroll-snap-align:start; opacity:1; transform:none; }
+.mobile-collections .panel-col span { font-size:.95rem; }
+.mobile-foot { margin-top:auto; padding-top:28px; display:flex; gap:20px; flex-wrap:wrap; }
+.mobile-foot a { color:var(--ink-2); font-size:.95rem; }
+
+@media(max-width:1100px) {
+  .panel-collections { grid-template-columns:repeat(4,1fr); }
+  #panelKolekce .panel-inner { grid-template-columns:1fr; }
+}
+@media(max-width:860px) {
+  .nav { padding:12px 16px; }
+  .site-header.scrolled .nav { padding-top:8px; padding-bottom:8px; }
+  .nav-links, .nav-panel { display:none !important; }
+  .nav-burger { display:block; }
+  .nav-logo { position:absolute; left:50%; transform:translateX(-50%); font-size:1.45rem; }
+  .nav-cart-label { display:none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu, .mobile-menu.open { clip-path:none; }
+}
 
 /* ── TLAČÍTKA ── */
 .btn-primary { background:var(--ink); color:var(--bg); border:1px solid var(--ink); padding:14px 28px; font-family:var(--sans); font-size:.95rem; font-weight:500; cursor:pointer; border-radius:var(--radius); transition:background .2s, border-color .2s; text-decoration:none; display:inline-block; }
@@ -321,8 +396,6 @@ footer { padding:64px 48px 48px; background:var(--ink); display:grid; grid-templ
   .pdetail-box { grid-template-columns:1fr; max-width:520px; overflow-y:auto; }
 }
 @media(max-width:860px) {
-  nav { padding:14px 16px; }
-  .nav-links { display:none; }
   .hero { grid-template-columns:1fr; padding:28px 16px 48px; gap:36px; }
   .hero-media { padding-bottom:0; }
   .hero-main { margin-left:0; aspect-ratio:4/5; }

@@ -14,20 +14,76 @@
 <body>
 
 <!-- ═══ NAV ═══ -->
-<nav>
-  <a href="#" class="nav-logo">Sága <em>Art</em></a>
-  <ul class="nav-links">
-    <li><a href="#kolekce">Kolekce</a></li>
-    <li><a href="#produkty">Šperky</a></li>
-    <li><a href="#o-saga-art">O Sága Art</a></li>
-    <li><a href="#doprava">Doprava</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
-  </ul>
-  <button class="nav-cart" data-action="toggleCart" aria-label="Otevřít košík">
-    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-    Košík <span class="cart-badge" id="cartBadge">0</span>
-  </button>
-</nav>
+<header class="site-header" id="siteHeader">
+  <nav class="nav" aria-label="Hlavní navigace">
+    <button class="nav-burger" id="navBurger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otevřít menu">
+      <span></span><span></span>
+    </button>
+    <a href="#" class="nav-logo">Sága <em>Art</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><button class="nav-link" data-panel="panelKolekce" data-spy="kolekce" aria-expanded="false" aria-controls="panelKolekce">Kolekce<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button></li>
+      <li><button class="nav-link" data-panel="panelSperky" data-spy="produkty" aria-expanded="false" aria-controls="panelSperky">Šperky<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button></li>
+      <li><a class="nav-link" href="#o-saga-art" data-spy="o-saga-art">O Sága Art</a></li>
+      <li><a class="nav-link" href="#doprava" data-spy="doprava">Doprava</a></li>
+      <li><a class="nav-link" href="#kontakt" data-spy="kontakt">Kontakt</a></li>
+      <li class="nav-indicator" aria-hidden="true"></li>
+    </ul>
+    <button class="nav-cart" data-action="toggleCart" aria-label="Otevřít košík">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="nav-cart-label">Košík</span> <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </nav>
+
+  <div class="nav-panel" id="panelKolekce" hidden>
+    <div class="panel-inner">
+      <div class="panel-intro">
+        <p class="eyebrow">Kolekce</p>
+        <p>Šperky z jedné kolekce spolu ladí, takže je můžete nosit samostatně i jako set.</p>
+        <a href="#kolekce" class="btn-link">Všechny kolekce</a>
+      </div>
+      <div class="panel-collections" id="navCollections"></div>
+    </div>
+  </div>
+
+  <div class="nav-panel" id="panelSperky" hidden>
+    <div class="panel-inner">
+      <ul class="panel-cats">
+        <li><a href="#produkty" data-filter="nahrdelniky"><span>Náhrdelníky</span><small data-count="nahrdelniky"></small></a></li>
+        <li><a href="#produkty" data-filter="nausnice"><span>Náušnice</span><small data-count="nausnice"></small></a></li>
+        <li><a href="#produkty" data-filter="naramky"><span>Náramky</span><small data-count="naramky"></small></a></li>
+        <li><a href="#produkty" data-filter="soupravy"><span>Sety</span><small data-count="soupravy"></small></a></li>
+        <li><a href="#produkty" data-filter="vse"><span>Všechny šperky</span><small data-count="vse"></small></a></li>
+      </ul>
+      <a href="#produkty" class="panel-feature" data-filter="soupravy">
+        <img src="/img/produkty/euforie-gold-set/1.jpg" alt="" width="1000" height="1000" loading="lazy">
+        <span class="caption">Sety: náhrdelník, náramek a náušnice, které k sobě ladí</span>
+      </a>
+      <a href="#produkty" class="panel-feature" data-filter="nausnice">
+        <img src="/img/produkty/charlotte-nausnice/1.jpg" alt="" width="1000" height="1000" loading="lazy">
+        <span class="caption">Náušnice z říčních perel</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ MOBILNÍ MENU ═══ -->
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <div class="mobile-menu-inner">
+    <ul class="mobile-links">
+      <li style="--i:0"><a href="#kolekce">Kolekce</a></li>
+      <li style="--i:1"><a href="#produkty" data-filter="vse">Šperky</a></li>
+      <li style="--i:2"><a href="#produkty" data-filter="soupravy">Sety</a></li>
+      <li style="--i:3"><a href="#o-saga-art">O Sága Art</a></li>
+      <li style="--i:4"><a href="#doprava">Doprava</a></li>
+      <li style="--i:5"><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="mobile-collections" id="mobileCollections" style="--i:6"></div>
+    <div class="mobile-foot" style="--i:7">
+      <a href="mailto:info@sagaart.cz">info@sagaart.cz</a>
+      <a href="https://www.fler.cz/sagaart" target="_blank" rel="noopener">Fler</a>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
@@ -349,5 +405,6 @@
 
 <script src="/js/shop.js" defer></script>
 <script src="/js/fx.js" defer></script>
+<script src="/js/nav.js" defer></script>
 </body>
 </html>

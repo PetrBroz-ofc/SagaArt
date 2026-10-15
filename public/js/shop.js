@@ -87,6 +87,21 @@ function renderCollections() {
   }).join('');
 }
 
+// Kolekce a počty v navigaci (panel Kolekce, mobilní menu, panel Šperky)
+function renderNavMenus() {
+  const cards = Object.entries(COLLECTIONS)
+    .filter(([name]) => PRODUCTS.some(p => p.collection === name))
+    .map(([name, c], i) => '<button type="button" class="panel-col" style="--i:' + i + '" data-action="filterByCollection" data-arg="' + esc(name) + '">'
+      + '<div class="panel-col-img">' + imgHtml({ name, collection:name }, c.cover || '') + '</div>'
+      + '<span>' + esc(name) + '</span></button>').join('');
+  ['navCollections', 'mobileCollections'].forEach(id => { const el = $(id); if (el) el.innerHTML = cards; });
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const cat = el.dataset.count;
+    const n = PRODUCTS.filter(p => cat === 'vse' || p.cat === cat).length;
+    el.textContent = n ? String(n) : '';
+  });
+}
+
 const filteredProducts = () => PRODUCTS.filter(p =>
   (filter.cat === 'vse' || p.cat === filter.cat) && (!filter.collection || p.collection === filter.collection));
 
@@ -528,6 +543,7 @@ async function loadCatalog() {
   }
   PRODUCTS = PRODUCTS.map(p => ({ ...p, id: safeId(p.id), price: Number(p.price) || 0 }));
   renderCollections();
+  renderNavMenus();
   renderGrid();
   renderCart();
   renderShipGrid();
