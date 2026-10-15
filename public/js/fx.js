@@ -1,9 +1,26 @@
 'use strict';
-// Sága Art: po přidání do košíku přeletí perla k ikoně košíku.
-// Kdo má zapnuté omezení animací, nic neletí.
+// Sága Art: drobné efekty. Let perly do košíku a patička (nápis, tlačítko Nahoru).
+// Kdo má zapnuté omezení animací, nic se nehýbe.
 
 (() => {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Patička: tlačítko Nahoru ──
+  document.getElementById('toTop')?.addEventListener('click', () => {
+    scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    document.querySelector('.nav-logo')?.focus({ preventScroll: true });
+  });
+
+  if (reduced) return;
+
+  // ── Patička: písmena velkého nápisu vyjedou zespodu, když se k němu doscrolluje ──
+  const mark = document.querySelector('.footer-wordmark');
+  if (mark && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('reveal-ready');
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) { mark.classList.add('in-view'); obs.disconnect(); }
+    }, { threshold: .35 }).observe(mark);
+  }
 
   document.addEventListener('click', e => {
     const btn = e.target.closest('[data-action="addToCart"]');
