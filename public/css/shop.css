@@ -12,7 +12,8 @@
   --text:var(--ink); --text-light:var(--ink-2); --green:#6f9a83;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth; scroll-padding-top:84px; }
+html.smooth-scroll { scroll-behavior:auto; overflow-anchor:none; }   /* plynulost řídí js/smooth.js */
 body { font-family:var(--sans); font-size:16px; line-height:1.6; background:var(--bg); color:var(--ink); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 img { max-width:100%; display:block; }
 :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
@@ -258,7 +259,7 @@ img { max-width:100%; display:block; }
 .footer-col ul a:hover, .footer-col ul a:focus-visible, .footer-bottom a:hover { color:var(--bg); background-size:100% 1px; }
 
 /* velký nápis přes celou šířku */
-.footer-wordmark { max-width:1360px; margin:0 auto; padding:24px 48px 0; font-family:var(--serif); font-size:clamp(4.5rem, 19vw, 17rem); line-height:.82; letter-spacing:-.035em; white-space:nowrap; color:rgba(248,244,239,.1); overflow:hidden; user-select:none; }
+.footer-wordmark { max-width:1360px; margin:0 auto; padding:.24em 48px 0; font-family:var(--serif); font-size:clamp(4.5rem, 19vw, 17rem); line-height:.82; letter-spacing:-.035em; white-space:nowrap; color:rgba(248,244,239,.1); overflow:hidden; user-select:none; }
 .footer-wordmark em { font-style:italic; color:rgba(217,169,176,.22); }
 .footer-wordmark span { display:inline-block; }
 .footer-wordmark .gap { width:.22em; }
@@ -285,7 +286,7 @@ img { max-width:100%; display:block; }
   .footer-photo span, .footer-photo::after { opacity:1; transform:none; }
   .footer-main { grid-template-columns:1fr 1fr; padding:48px 16px 16px; gap:36px 24px; }
   .footer-brand { grid-column:1 / -1; }
-  .footer-wordmark { padding:16px 16px 0; }
+  .footer-wordmark { padding:.24em 16px 0; }
   .footer-bottom { padding:18px 16px 22px; }
 }
 
@@ -495,14 +496,15 @@ img { max-width:100%; display:block; }
 .intro-stack { position:relative; width:min(52vw, 290px); aspect-ratio:4/5; }
 .intro-card { position:absolute; inset:0; overflow:hidden; border-radius:3px; opacity:0; background:var(--sand); box-shadow:0 30px 60px -28px rgba(42,34,32,.45); will-change:transform, opacity; }
 .intro-card img { width:100%; height:100%; object-fit:cover; }
-.intro-word { font-family:var(--serif); font-size:clamp(1.8rem, 4vw, 2.6rem); line-height:1; letter-spacing:-.01em; color:var(--ink); overflow:hidden; padding-bottom:.08em; white-space:nowrap; }
+.intro-word { font-family:var(--serif); font-size:clamp(1.8rem, 4vw, 2.6rem); line-height:1; letter-spacing:-.01em; color:var(--ink); overflow:hidden; padding:.25em 0 .1em; white-space:nowrap; }
 .intro-word span { display:inline-block; }
 .intro-word em span { font-style:italic; color:var(--accent); }
 .intro-word .gap { width:.25em; }
 .intro-skip { position:absolute; bottom:22px; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
 
 /* nadpis po řádcích (maska) */
-.hero-title .line { display:block; overflow:hidden; padding-bottom:.06em; margin-bottom:-.06em; }
+/* horní rezerva, aby maska neusekla háčky a čárky (Ž, á) */
+.hero-title .line { display:block; overflow:hidden; padding:.22em 0 .08em; margin:-.22em 0 -.08em; }
 .hero-title .line > span { display:inline-block; }
 
 /* výchozí stav, dokud běží úvod */
