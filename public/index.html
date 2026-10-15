@@ -13,6 +13,18 @@
 </head>
 <body>
 
+<!-- ═══ ÚVODNÍ ANIMACE (js/intro.js) ═══ -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-stack">
+    <div class="intro-card" data-rot="-4"><img src="/img/produkty/more/1.jpg" alt="" width="750" height="1000"></div>
+    <div class="intro-card" data-rot="3"><img src="/img/produkty/euforie-gold-set/1.jpg" alt="" width="1000" height="1000"></div>
+    <div class="intro-card" data-rot="-2" data-target="side"><img src="/img/produkty/duna-set/1.jpg" alt="" width="1000" height="1000"></div>
+    <div class="intro-card" data-rot="2.5"><img src="/img/produkty/euforie-gold-nahrdelnik/1.jpg" alt="" width="1000" height="1000"></div>
+    <div class="intro-card" data-rot="0" data-target="main"><img src="/img/produkty/charlotte-set/1.jpg" alt="" width="1000" height="1000" fetchpriority="high"></div>
+  </div>
+  <div class="intro-word"><span>S</span><span>á</span><span>g</span><span>a</span><span class="gap"> </span><em><span>A</span><span>r</span><span>t</span></em></div>
+</div>
+
 <!-- ═══ NAV ═══ -->
 <header class="site-header" id="siteHeader">
   <nav class="nav" aria-label="Hlavní navigace">
@@ -89,7 +101,7 @@
 <section class="hero">
   <div class="hero-text">
     <p class="eyebrow">Ruční práce · pravé říční perly</p>
-    <h1 class="hero-title">Žít naplno a&nbsp;<em>zářit</em> po svém</h1>
+    <h1 class="hero-title"><span class="line"><span>Žít naplno a</span></span><span class="line"><span><em>zářit</em> po svém</span></span></h1>
     <p class="hero-desc">Šperky z pravých říčních perel, přírodních minerálů a chirurgické či nerezové oceli. Každý dělám ručně a svůj další příběh dostane od ženy, která si ho vybere.</p>
     <div class="hero-btns">
       <a href="#produkty" class="btn-primary">Prohlédnout šperky</a>
@@ -430,6 +442,7 @@
 
 <div class="notification" id="notification"></div>
 
+<script src="/js/intro.js" defer></script>
 <script src="/js/shop.js" defer></script>
 <script src="/js/fx.js" defer></script>
 <script src="/js/nav.js" defer></script>

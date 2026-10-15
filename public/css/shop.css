@@ -486,3 +486,39 @@ img { max-width:100%; display:block; }
   .hero-media .caption { text-align:right; margin-left:0; padding-left:0; }
   .hero-side { width:min(34%, 240px); left:2%; }
 }
+
+/* ── ÚVODNÍ ANIMACE (js/intro.js) ── */
+.intro { position:fixed; inset:0; z-index:1000; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; cursor:pointer;
+  /* pojistka: kdyby JS nedoběhl, úvod po 5 s zmizí sám */
+  animation:introFailsafe .3s 5s forwards; }
+@keyframes introFailsafe { to { opacity:0; visibility:hidden; } }
+.intro-stack { position:relative; width:min(52vw, 290px); aspect-ratio:4/5; }
+.intro-card { position:absolute; inset:0; overflow:hidden; border-radius:3px; opacity:0; background:var(--sand); box-shadow:0 30px 60px -28px rgba(42,34,32,.45); will-change:transform, opacity; }
+.intro-card img { width:100%; height:100%; object-fit:cover; }
+.intro-word { font-family:var(--serif); font-size:clamp(1.8rem, 4vw, 2.6rem); line-height:1; letter-spacing:-.01em; color:var(--ink); overflow:hidden; padding-bottom:.08em; white-space:nowrap; }
+.intro-word span { display:inline-block; }
+.intro-word em span { font-style:italic; color:var(--accent); }
+.intro-word .gap { width:.25em; }
+.intro-skip { position:absolute; bottom:22px; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+
+/* nadpis po řádcích (maska) */
+.hero-title .line { display:block; overflow:hidden; padding-bottom:.06em; margin-bottom:-.06em; }
+.hero-title .line > span { display:inline-block; }
+
+/* výchozí stav, dokud běží úvod */
+.intro-play .site-header { transform:translateY(-100%); }
+.intro-fly .hero-main, .intro-fly .hero-side { visibility:hidden; }
+.intro-play .hero-title .line > span { transform:translateY(110%); }
+.intro-play .hero-text .eyebrow, .intro-play .hero-desc, .intro-play .hero-btns, .intro-play .hero-media .caption, .intro-play .facts { opacity:0; transform:translateY(16px); }
+
+/* odhalení (třída hero-in zapne přechody s postupným zpožděním) */
+.hero-in .site-header { transition:transform .9s cubic-bezier(.16,1,.3,1) .55s; }
+.hero-in .hero-title .line > span { transition:transform 1.1s cubic-bezier(.16,1,.3,1); }
+.hero-in .hero-title .line:nth-child(1) > span { transition-delay:.05s; }
+.hero-in .hero-title .line:nth-child(2) > span { transition-delay:.16s; }
+.hero-in .hero-text .eyebrow, .hero-in .hero-desc, .hero-in .hero-btns, .hero-in .hero-media .caption, .hero-in .facts { transition:opacity .9s ease, transform 1s cubic-bezier(.16,1,.3,1); }
+.hero-in .hero-text .eyebrow { transition-delay:0s; }
+.hero-in .hero-desc { transition-delay:.3s; }
+.hero-in .hero-btns { transition-delay:.42s; }
+.hero-in .hero-media .caption { transition-delay:.7s; }
+.hero-in .facts { transition-delay:.8s; }
