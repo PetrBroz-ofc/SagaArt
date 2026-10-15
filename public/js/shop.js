@@ -17,22 +17,26 @@ let SHIPPING = {
   posta:      { name:'Česká pošta na adresu',            price:130, country:'CZ' },
   packeta_sk: { name:'Packeta na Slovensko',                price:130, country:'SK' },
 };
+const HEART = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>';
+const BAG = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>';
+
 const SHIP_META = {
-  zasilkovna: { icon:'📦', desc:'Doručení na výdejní místo Zásilkovny nebo do Z-BOXu' },
-  balikovna:  { icon:'📮', desc:'Vyzvednutí na pobočce Balíkovny' },
-  posta:      { icon:'🏠', desc:'Doručení až domů' },
-  packeta_sk: { icon:'🇸🇰', desc:'Výdejní místo nebo Z-BOX na Slovensku' },
+  zasilkovna: { desc:'Doručení na výdejní místo Zásilkovny nebo do Z-BOXu' },
+  balikovna:  { desc:'Vyzvednutí na pobočce Balíkovny' },
+  posta:      { desc:'Doručení až domů' },
+  packeta_sk: { desc:'Výdejní místo nebo Z-BOX na Slovensku' },
 };
 
 // Kolekce — barvy placeholderů odpovídají kamenům
+// Pořadí = pořadí na webu. cover = titulní fotka (šperk na těle působí víc než stojánek).
 const COLLECTIONS = {
-  Charlotte: { desc:'Jemný amazonit, pravé říční perly a čtyřlístek pro štěstí.', ph1:'#e3f1ec', ph2:'#a7cfc1', gem:'#9cc9b9' },
-  Pure:      { desc:'Nepravidelné říční perly s jemnými nerezovými detaily.', ph1:'#fbf1ef', ph2:'#e8c9c6', gem:'' },
-  'Moře':    { desc:'Barvy, lehkost a klid mořské hladiny v odstínech akvamarínu.', ph1:'#e5f0f5', ph2:'#a9c8d8', gem:'#a3c8da' },
-  Pearl:     { desc:'Vrstvené perlové náhrdelníky v kombinaci se stříbřitou ocelí.', ph1:'#f4f1f1', ph2:'#d6cdcf', gem:'' },
-  Euforie:   { desc:'Drobné říční perly a zlatá ocel. Šperky na každý den, které se krásně vrství.', ph1:'#fbf3e4', ph2:'#e6cf9f', gem:'' },
-  Duna:      { desc:'Výrazný zlatý řetízek, krémové perly a světlý amazonit se stromem života.', ph1:'#f7f0e1', ph2:'#d9c9a0', gem:'#c9dccf' },
-  Best:      { desc:'Amazonit z Peru, říční perly a perleťové srdce.', ph1:'#e8f2ec', ph2:'#b6d3c2', gem:'#a9cdb9' },
+  Charlotte: { cover:'/img/produkty/charlotte-nahrdelnik/1.jpg', desc:'Jemný amazonit, pravé říční perly a čtyřlístek pro štěstí.', ph1:'#e3f1ec', ph2:'#a7cfc1', gem:'#9cc9b9' },
+  Euforie:   { cover:'/img/produkty/euforie-gold-long/1.jpg', desc:'Drobné říční perly a zlatá ocel. Šperky na každý den, které se krásně vrství.', ph1:'#fbf3e4', ph2:'#e6cf9f', gem:'' },
+  'Moře':    { cover:'/img/produkty/more-kvet-nahrdelnik/1.jpg', desc:'Barvy, lehkost a klid mořské hladiny v odstínech akvamarínu.', ph1:'#e5f0f5', ph2:'#a9c8d8', gem:'#a3c8da' },
+  Duna:      { cover:'/img/produkty/duna-nahrdelnik/1.jpg', desc:'Výrazný zlatý řetízek, krémové perly a světlý amazonit se stromem života.', ph1:'#f7f0e1', ph2:'#d9c9a0', gem:'#c9dccf' },
+  Pure:      { cover:'/img/produkty/pure-nahrdelnik/1.jpg', desc:'Nepravidelné říční perly s jemnými nerezovými detaily.', ph1:'#fbf1ef', ph2:'#e8c9c6', gem:'' },
+  Best:      { cover:'/img/produkty/best-harmonie/1.jpg', desc:'Amazonit z Peru, říční perly a perleťové srdce.', ph1:'#e8f2ec', ph2:'#b6d3c2', gem:'#a9cdb9' },
+  Pearl:     { cover:'/img/produkty/silver-pearl/1.jpg', desc:'Vrstvené perlové náhrdelníky v kombinaci se stříbřitou ocelí.', ph1:'#f4f1f1', ph2:'#d6cdcf', gem:'' },
 };
 const CAT_LABELS = { nahrdelniky:'Náhrdelníky', nausnice:'Náušnice', naramky:'Náramky', soupravy:'Sety' };
 
@@ -48,9 +52,9 @@ function pearlSvg(gem) {
   for (let i = 0; i <= 8; i++) {
     const t = i / 8, x = (1-t)*(1-t)*8 + 2*(1-t)*t*50 + t*t*92, y = (1-t)*(1-t)*18 + 2*(1-t)*t*112 + t*t*18;
     const isGem = gem && i % 2 === 1;
-    s += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(isGem?4.2:5.4)+'" fill="'+(isGem?gem:'url(#pg)')+'" stroke="rgba(143,74,87,.18)" stroke-width=".4"/>';
+    s += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(isGem?4.2:5.4)+'" fill="'+(isGem?gem:'#f4ece6')+'" stroke="rgba(143,74,87,.18)" stroke-width=".4"/>';
   }
-  return s + '<circle cx="50" cy="84" r="8" fill="url(#pg)" stroke="rgba(143,74,87,.18)" stroke-width=".4"/></svg>';
+  return s + '<circle cx="50" cy="84" r="8" fill="#f4ece6" stroke="rgba(143,74,87,.18)" stroke-width=".4"/></svg>';
 }
 function phHtml(collection) {
   const c = COLLECTIONS[collection] || {};
@@ -63,16 +67,6 @@ function imgHtml(p, src) {
 }
 const firstImg = p => (Array.isArray(p.imgs) && p.imgs[0]) || '';
 
-(function drawHero() {
-  let s = '';
-  for (let i = 0; i <= 14; i++) {
-    const t = i / 14, x = (1-t)*(1-t)*40 + 2*(1-t)*t*200 + t*t*360, y = (1-t)*(1-t)*70 + 2*(1-t)*t*400 + t*t*70;
-    s += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(i%3===1?11:15)+'" fill="'+(i%3===1?'url(#gg)':'url(#pg)')+'" stroke="rgba(143,74,87,.15)"/>';
-  }
-  $('strand').innerHTML = s;
-  document.querySelector('.about-img .ph').innerHTML = pearlSvg('#e2a3ab');
-})();
-
 // ═══════════════════════════════
 // KOLEKCE + FILTR + NAČÍST DALŠÍ
 // ═══════════════════════════════
@@ -83,15 +77,13 @@ let visibleCount = PAGE_SIZE;
 function renderCollections() {
   $('collectionGrid').innerHTML = Object.entries(COLLECTIONS).map(([name, c]) => {
     const items = PRODUCTS.filter(p => p.collection === name);
-    const img = items.map(firstImg).find(Boolean);
+    const img = c.cover || items.map(firstImg).find(Boolean);
     const n = items.length;
-    return '<div class="cat-card" data-action="filterByCollection" data-arg="' + esc(name) + '">'
-      + '<div class="cat-badge">' + n + ' ' + (n === 1 ? 'šperk' : n > 1 && n < 5 ? 'šperky' : 'šperků') + '</div>'
-      + imgHtml({ name, collection:name }, img)
-      + '<div class="cat-overlay"><h3 class="cat-name">' + esc(name) + '</h3>'
-      + '<p class="cat-count">Kolekce Sága Art</p>'
-      + '<p class="cat-desc">' + esc(c.desc) + '</p>'
-      + '<span class="cat-btn">Zobrazit kolekci →</span></div></div>';
+    if (!n) return '';
+    return '<button type="button" class="cat-card" data-action="filterByCollection" data-arg="' + esc(name) + '">'
+      + '<div class="cat-media">' + imgHtml({ name, collection:name }, img) + '</div>'
+      + '<h3 class="cat-name">' + esc(name) + '<span class="cat-count">' + n + ' ' + (n === 1 ? 'šperk' : n < 5 ? 'šperky' : 'šperků') + '</span></h3>'
+      + '<p class="cat-desc">' + esc(c.desc) + '</p></button>';
   }).join('');
 }
 
@@ -110,15 +102,14 @@ function renderGrid() {
       return '<div class="product-card" data-action="openProduct" data-arg="' + id + '">'
         + '<div class="product-img">' + imgHtml(p, firstImg(p))
         + (photos[1] ? '<img class="alt" src="' + esc(photos[1]) + '" alt="" loading="lazy" referrerpolicy="no-referrer"/>' : '')
-        + (photos.length > 1 ? '<div class="product-photos" aria-label="' + photos.length + ' fotek">📷 ' + photos.length + '</div>' : '')
         + (p.badge ? '<div class="product-badge">' + esc(p.badge) + '</div>' : '')
-        + (p.collection ? '<div class="product-collection">' + esc(p.collection) + '</div>' : '')
-        + '<button class="product-wishlist' + (fav ? ' on' : '') + '" data-action="toggleWish" data-arg="' + id + '" aria-label="Oblíbené">' + (fav ? '♥' : '♡') + '</button>'
+        + '<button class="product-wishlist' + (fav ? ' on' : '') + '" data-action="toggleWish" data-arg="' + id + '" aria-label="Uložit do oblíbených" aria-pressed="' + fav + '">' + HEART + '</button>'
         + '</div><div class="product-info">'
+        + (p.collection ? '<p class="product-collection">' + esc(p.collection) + '</p>' : '')
         + '<h3 class="product-name">' + esc(p.name) + '</h3>'
         + '<p class="product-material">' + esc(p.material) + '</p>'
         + '<div class="product-bottom"><span class="product-price">' + kc(p.price) + '</span>'
-        + '<button class="product-add" data-action="addToCart" data-arg="' + id + '" aria-label="Přidat do košíku">+</button>'
+        + '<button class="product-add" data-action="addToCart" data-arg="' + id + '" aria-label="Přidat ' + esc(p.name) + ' do košíku">' + BAG + '<span>Do košíku</span></button>'
         + '</div></div></div>';
     }).join('');
   }
@@ -148,7 +139,7 @@ function toggleWish(id, btn) {
   wishlist = wishlist.includes(id) ? wishlist.filter(x => x !== id) : [...wishlist, id];
   save('sa_wish', wishlist);
   const on = wishlist.includes(id);
-  btn.classList.toggle('on', on); btn.textContent = on ? '♥' : '♡';
+  btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', on);
 }
 
 // ═══════════════════════════════
@@ -238,7 +229,7 @@ function addToCart(id, btn) {
   else cart.push({ id, qty:1 });
   cartChanged();
   showNotification(p.name + ' je v košíku');
-  if (btn.classList.contains('product-add')) { btn.textContent = '✓'; setTimeout(() => { btn.textContent = '+'; }, 1200); }
+  if (btn.classList.contains('product-add')) { btn.classList.add('added'); setTimeout(() => btn.classList.remove('added'), 1200); }
 }
 function changeQty(i, d) {
   cart[i].qty = Math.min(10, cart[i].qty + d);
@@ -255,7 +246,7 @@ function renderCart() {
   $('cartBadge').textContent = lines.reduce((s, l) => s + l.qty, 0);
   const footer = $('cartFooterBox');
   if (!lines.length) {
-    $('cartItems').innerHTML = '<div class="cart-empty">🤍<span>Košík je zatím prázdný</span></div>';
+    $('cartItems').innerHTML = '<div class="cart-empty"><span>Košík je zatím prázdný</span></div>';
     footer.style.display = 'none';
     return;
   }
@@ -334,9 +325,9 @@ function renderShippingOptions() {
   $('shippingOptions').innerHTML = Object.entries(SHIPPING)
     .filter(([, s]) => s.country === country)
     .map(([key, s]) => {
-      const m = SHIP_META[key] || { icon:'📦', desc:'' };
+      const m = SHIP_META[key] || { desc:'' };
       return `<div class="opt ${selectedShipping === key ? 'selected' : ''}" data-action="selectShipping" data-arg="${esc(key)}">
-        <div class="opt-radio"></div><div class="opt-icon">${m.icon}</div>
+        <div class="opt-radio"></div>
         <div class="opt-info"><div class="opt-name">${esc(s.name)}</div><div class="opt-desc">${esc(m.desc)}</div></div>
         <div class="opt-price">${kc(s.price)}</div></div>`;
     }).join('');
@@ -494,7 +485,7 @@ document.querySelectorAll('[data-filter]').forEach(a => a.addEventListener('clic
 }));
 $('newsletterForm').addEventListener('submit', e => {
   e.preventDefault(); e.target.reset();
-  showNotification('Děkuji za přihlášení k odběru 🤍');
+  showNotification('Děkuji, jste přihlášená k odběru.');
 });
 document.addEventListener('keydown', e => {
   const detailOpen = $('pdetailOverlay').classList.contains('open');

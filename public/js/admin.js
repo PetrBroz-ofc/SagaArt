@@ -93,7 +93,7 @@ function renderProducts() {
   $('statCollections').textContent = new Set(products.map(p => p.collection).filter(Boolean)).size;
 
   if (!products.length) {
-    $('productsList').innerHTML = '<div class="empty"><div class="empty-icon">🤍</div><p>Žádné šperky. Přidej první!</p></div>';
+    $('productsList').innerHTML = '<div class="empty"><p>Žádné šperky. Přidej první!</p></div>';
     return;
   }
   $('productsList').innerHTML = products.map(p => {
