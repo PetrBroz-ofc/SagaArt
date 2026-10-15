@@ -98,7 +98,7 @@ img { max-width:100%; display:block; }
   .site-header.scrolled .nav { padding-top:8px; padding-bottom:8px; }
   .nav-links, .nav-panel { display:none !important; }
   .nav-burger { display:block; }
-  .nav-logo { position:absolute; left:50%; transform:translateX(-50%); font-size:1.45rem; }
+  .nav .nav-logo { position:absolute; left:50%; transform:translateX(-50%); font-size:1.45rem; }
   .nav-cart-label { display:none; }
 }
 @media (prefers-reduced-motion: reduce) {
