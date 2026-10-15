@@ -5,8 +5,8 @@
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
   ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const safeId = s => String(s ?? '').replace(/[^A-Za-z0-9_-]/g, '');
-// Obrázky jen z https (žádné javascript:/data: URL)
-const safeUrl = u => /^https:\/\/[^\s"'<>]+$/.test(String(u || '')) ? String(u) : '';
+// Obrázky jen z https nebo z vlastní složky /img/ (žádné javascript:/data: URL)
+const safeUrl = u => /^(https:\/\/[^\s"'<>]+|\/img\/[A-Za-z0-9_\/.-]+\.(jpe?g|png|webp))$/.test(String(u || '')) ? String(u) : '';
 const kc = n => (Number(n) || 0).toLocaleString('cs-CZ') + ' Kč';
 const $ = id => document.getElementById(id);
 
@@ -30,6 +30,9 @@ const COLLECTIONS = {
   Pure:      { desc:'Nepravidelné říční perly s jemnými nerezovými detaily.', ph1:'#fbf1ef', ph2:'#e8c9c6', gem:'' },
   'Moře':    { desc:'Barvy, lehkost a klid mořské hladiny v odstínech akvamarínu.', ph1:'#e5f0f5', ph2:'#a9c8d8', gem:'#a3c8da' },
   Pearl:     { desc:'Vrstvené perlové náhrdelníky v kombinaci se stříbřitou ocelí.', ph1:'#f4f1f1', ph2:'#d6cdcf', gem:'' },
+  Euforie:   { desc:'Drobné říční perly a zlatá ocel. Šperky na každý den, které se krásně vrství.', ph1:'#fbf3e4', ph2:'#e6cf9f', gem:'' },
+  Duna:      { desc:'Výrazný zlatý řetízek, krémové perly a světlý amazonit se stromem života.', ph1:'#f7f0e1', ph2:'#d9c9a0', gem:'#c9dccf' },
+  Best:      { desc:'Amazonit z Peru, říční perly a perleťové srdce.', ph1:'#e8f2ec', ph2:'#b6d3c2', gem:'#a9cdb9' },
 };
 const CAT_LABELS = { nahrdelniky:'Náhrdelníky', nausnice:'Náušnice', naramky:'Náramky', soupravy:'Sety' };
 
@@ -103,8 +106,11 @@ function renderGrid() {
   } else {
     grid.innerHTML = list.slice(0, visibleCount).map(p => {
       const id = safeId(p.id), fav = wishlist.includes(id);
+      const photos = (Array.isArray(p.imgs) ? p.imgs : []).map(safeUrl).filter(Boolean);
       return '<div class="product-card" data-action="openProduct" data-arg="' + id + '">'
         + '<div class="product-img">' + imgHtml(p, firstImg(p))
+        + (photos[1] ? '<img class="alt" src="' + esc(photos[1]) + '" alt="" loading="lazy" referrerpolicy="no-referrer"/>' : '')
+        + (photos.length > 1 ? '<div class="product-photos" aria-label="' + photos.length + ' fotek">📷 ' + photos.length + '</div>' : '')
         + (p.badge ? '<div class="product-badge">' + esc(p.badge) + '</div>' : '')
         + (p.collection ? '<div class="product-collection">' + esc(p.collection) + '</div>' : '')
         + '<button class="product-wishlist' + (fav ? ' on' : '') + '" data-action="toggleWish" data-arg="' + id + '" aria-label="Oblíbené">' + (fav ? '♥' : '♡') + '</button>'
@@ -153,13 +159,19 @@ let currentSlide = 0, slideCount = 1;
 function openProduct(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
-  const imgs = (Array.isArray(p.imgs) && p.imgs.length) ? p.imgs : [''];
+  const valid = (Array.isArray(p.imgs) ? p.imgs : []).map(safeUrl).filter(Boolean);
+  const imgs = valid.length ? valid : [''];
   slideCount = imgs.length; currentSlide = 0;
   const slides = $('pdetailSlides');
   slides.style.transition = 'none'; slides.style.transform = 'translateX(0)';
-  slides.innerHTML = imgs.map(src => '<div class="pdetail-slide">' + imgHtml(p, src) + '</div>').join('');
+  slides.innerHTML = imgs.map((src, i) => '<div class="pdetail-slide">'
+    + (src ? '<img src="' + esc(src) + '" alt="' + esc(p.name) + (i ? ' (fotka ' + (i+1) + ')' : '') + '" ' + (i ? 'loading="lazy" ' : '') + 'referrerpolicy="no-referrer"/>' : phHtml(p.collection))
+    + '</div>').join('');
   $('pdetailDots').innerHTML = slideCount > 1
     ? imgs.map((_, i) => '<button class="pdetail-dot ' + (i===0?'active':'') + '" data-action="goToSlide" data-arg="' + i + '" aria-label="Fotka ' + (i+1) + '"></button>').join('') : '';
+  $('pdetailThumbs').innerHTML = slideCount > 1
+    ? imgs.map((src, i) => '<button class="pdetail-thumb ' + (i===0?'active':'') + '" data-action="goToSlide" data-arg="' + i + '" aria-label="Zobrazit fotku ' + (i+1) + '"><img src="' + esc(src) + '" alt="" loading="lazy" referrerpolicy="no-referrer"/></button>').join('') : '';
+  $('pdetailCounter').textContent = slideCount > 1 ? '1 / ' + slideCount : '';
   document.querySelector('.pdetail-prev').style.display = slideCount > 1 ? 'flex' : 'none';
   document.querySelector('.pdetail-next').style.display = slideCount > 1 ? 'flex' : 'none';
 
@@ -186,6 +198,14 @@ function updateGallery() {
   slides.style.transition = 'transform .35s ease';
   slides.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
   document.querySelectorAll('.pdetail-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  document.querySelectorAll('.pdetail-thumb').forEach((t, i) => {
+    t.classList.toggle('active', i === currentSlide);
+    if (i === currentSlide) {
+      const box = t.parentElement;
+      box.scrollTo({ left: t.offsetLeft - (box.clientWidth - t.offsetWidth) / 2, behavior:'smooth' });
+    }
+  });
+  if (slideCount > 1) $('pdetailCounter').textContent = (currentSlide + 1) + ' / ' + slideCount;
 }
 (function setupSwipe() {
   const g = $('pdetailGallery'); let startX = 0;

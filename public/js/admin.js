@@ -4,7 +4,8 @@
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
   ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const safeId = s => String(s ?? '').replace(/[^A-Za-z0-9_-]/g, '');
-const safeUrl = u => /^https:\/\/res\.cloudinary\.com\/[^\s"'<>]+$/.test(String(u || '')) ? String(u) : '';
+// Cloudinary nebo fotky uložené přímo na webu (/img/produkty/...)
+const safeUrl = u => /^(https:\/\/res\.cloudinary\.com\/[^\s"'<>]+|\/img\/produkty\/[a-z0-9-]+\/\d+\.jpg)$/.test(String(u || '')) ? String(u) : '';
 const $ = id => document.getElementById(id);
 
 const CAT_LABELS = { nahrdelniky:'Náhrdelníky', nausnice:'Náušnice', naramky:'Náramky', soupravy:'Sety' };

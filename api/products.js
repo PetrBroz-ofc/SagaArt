@@ -3,8 +3,11 @@ const { ID_RE, clean } = require('./_shop');
 
 const CATEGORIES = ['nahrdelniky', 'nausnice', 'naramky', 'soupravy'];
 
-// Fotky smí být JEN z vlastního Cloudinary účtu (žádné cizí servery / sledovací pixely).
+// Fotky smí být JEN z vlastního Cloudinary účtu nebo ze složky webu /img/produkty
+// (žádné cizí servery / sledovací pixely).
+const LOCAL_IMG = /^\/img\/produkty\/[a-z0-9-]+\/\d+\.jpg$/;
 function allowedImg(url) {
+  if (LOCAL_IMG.test(url)) return true;
   const cloud = process.env.CLOUDINARY_CLOUD_NAME;
   if (!cloud) return false;
   try {

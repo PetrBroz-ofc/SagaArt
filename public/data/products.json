@@ -7,14 +7,19 @@
   "price": 2009,
   "badge": "Set",
   "material": "Amazonit · pravé říční perly · nerezová ocel",
-  "desc": "Tři šperky, jeden sladěný příběh. Set náhrdelníku, náramku a náušnic s přírodním amazonitem a pravými kultivovanými říčními perlami.",
+  "desc": "Tři šperky z kolekce Charlotte v jednom sladěném setu: náhrdelník, náramek a visací náušnice. Spojuje je přírodní amazonit, pravé kultivované říční perly a nerezová ocel ve zlaté barvě. Náhrdelník i náramek zdobí drobný čtyřlístek pro štěstí a náramek má posuvné zapínání, takže si ho upravíte na své zápěstí. Šperky můžete nosit společně i každý zvlášť. Každý kámen i perla je originál, proto se kresba, odstín a tvar mohou kus od kusu trochu lišit.",
   "props": {
    "Obsahuje": "Náhrdelník, náramek, náušnice",
    "Materiál": "Přírodní amazonit, říční perly",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/charlotte-set/1.jpg",
+   "/img/produkty/charlotte-set/2.jpg",
+   "/img/produkty/charlotte-set/3.jpg",
+   "/img/produkty/charlotte-set/4.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T12:00:00.000Z"
  },
@@ -26,14 +31,18 @@
   "price": 521,
   "badge": "",
   "material": "Amazonit · říční perly · kroužky z nerezové oceli",
-  "desc": "Jemný odstín amazonitu a přirozený lesk pravých říčních perel. Visací kroužkové náušnice z nerezové oceli.",
+  "desc": "Visací náušnice z kolekce Charlotte. Každou tvoří zlomek přírodního amazonitu a dvě pravé říční perly oddělené drobnými kovovými korálky, zavěšené na kroužku z nerezové oceli ve zlaté barvě. Při pohybu se jemně pohupují. Hodí se k běžnému oblečení i na slavnostnější příležitost a krásně ladí s náhrdelníkem a náramkem Charlotte.",
   "props": {
    "Materiál": "Přírodní amazonit, říční perly",
    "Typ": "Visací kroužkové",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/charlotte-nausnice/1.jpg",
+   "/img/produkty/charlotte-nausnice/2.jpg",
+   "/img/produkty/charlotte-nausnice/3.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:59:00.000Z"
  },
@@ -45,14 +54,17 @@
   "price": 788,
   "badge": "",
   "material": "Amazonit · říční perly · čtyřlístek",
-  "desc": "Jemné odstíny přírodního amazonitu, lesk pravých říčních perel a drobný čtyřlístek. Nastavitelný náramek s posuvným zapínáním.",
+  "desc": "Náramek z kolekce Charlotte spojuje nepravidelné kousky přírodního amazonitu, pravé říční perly a korálky z nerezové oceli ve zlaté barvě. Doplňuje ho drobný čtyřlístek jako symbol štěstí. Posuvné zapínání umožňuje nastavit obvod přesně podle vašeho zápěstí. Pěkně se nosí samostatně i spolu s náhrdelníkem Charlotte.",
   "props": {
    "Materiál": "Přírodní amazonit, říční perly",
    "Zapínání": "Posuvné, nastavitelné",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/charlotte-naramek/1.jpg",
+   "/img/produkty/charlotte-naramek/2.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:58:00.000Z"
  },
@@ -64,14 +76,18 @@
   "price": 987,
   "badge": "",
   "material": "Amazonit · říční perly · čtyřlístek",
-  "desc": "Jemné odstíny amazonitu, lesk pravých říčních perel a přívěsek čtyřlístku na řetízku z nerezové oceli.",
+  "desc": "Náhrdelník Charlotte kombinuje nepravidelné kousky přírodního amazonitu, pravé kultivované říční perly a drobné kovové korálky na řetízku z nerezové oceli ve zlaté barvě. Uprostřed visí čtyřlístek pro štěstí. Nejvíc vynikne u otevřeného výstřihu, ale sluší i k tričku nebo halence. Přirozené rozdíly v kresbě kamene a tvaru perel dělají z každého kusu originál.",
   "props": {
    "Materiál": "Přírodní amazonit, říční perly",
    "Přívěsek": "Čtyřlístek",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/charlotte-nahrdelnik/1.jpg",
+   "/img/produkty/charlotte-nahrdelnik/2.jpg",
+   "/img/produkty/charlotte-nahrdelnik/3.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:57:00.000Z"
  },
@@ -83,14 +99,19 @@
   "price": 1221,
   "badge": "Autorský",
   "material": "Pravé říční perly · nerezová ocel ve stříbrné",
-  "desc": "Ručně vyráběný autorský vrstvený náhrdelník z pravých říčních perel a nerezové oceli ve stříbrné barvě.",
+  "desc": "Autorský vrstvený náhrdelník ze stříbrně lesklé nerezové oceli a pravých říčních perel. Tvoří ho dva řetízky: výraznější řetěz s perlami a jemný nerezový řetízek s jedinou perlou uprostřed. Perly pochází od českých dodavatelů a každá má svůj vlastní tvar i odstín. Hodí se na každý den i na slavnostnější večer.",
   "props": {
    "Materiál": "Pravé říční perly",
    "Styl": "Vrstvený, dvojitý",
    "Kov": "Nerezová ocel, stříbrná",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/silver-pearl/1.jpg",
+   "/img/produkty/silver-pearl/2.jpg",
+   "/img/produkty/silver-pearl/3.jpg",
+   "/img/produkty/silver-pearl/4.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:56:00.000Z"
  },
@@ -102,14 +123,18 @@
   "price": 577,
   "badge": "",
   "material": "Sladkovodní perly · nerezová ocel ve zlaté",
-  "desc": "Náušnice Rose propojují jemný lesk pravých sladkovodních perel se zlatou barvou nerezové oceli. Perly jsou opravdu nepravidelné, takže každý pár vypadá trochu jinak.",
+  "desc": "Náušnice Rose z kolekce Charlotte spojují pravé sladkovodní perly s nerezovou ocelí ve zlaté barvě. Krátké řady perel se při nošení volně pohybují. Perly jsou opravdu nepravidelné, takže každý pár vypadá trochu jinak. Ladí s náhrdelníkem Rose ze stejné kolekce.",
   "props": {
    "Materiál": "Pravé sladkovodní perly",
    "Háčky": "Nerezové",
    "Kov": "Nerezová ocel, zlatá",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/charlotte-nausnice-rose/1.jpg",
+   "/img/produkty/charlotte-nausnice-rose/2.jpg",
+   "/img/produkty/charlotte-nausnice-rose/3.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:55:00.000Z"
  },
@@ -121,14 +146,17 @@
   "price": 1320,
   "badge": "",
   "material": "Růženín · nepravidelné perly · pozlacená ocel",
-  "desc": "Jemný náhrdelník se zlomky růženínu a pravými perlami. Perly jsou výrazně nepravidelné, doplněné přívěskem s pravou perlou.",
+  "desc": "Náhrdelník Rose z kolekce Charlotte spojuje zlomky růženínu s pravými nepravidelnými perlami, takže každá perla má jiný tvar. Zlaté detaily jsou z pozlacené nerezové oceli a přívěsek nese pravou perlu. Hodí se pro běžné nošení i na slavnostnější příležitosti.",
   "props": {
    "Materiál": "Zlomky růženínu, pravé perly",
    "Přívěsek": "Pravá perla",
    "Kov": "Pozlacená nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/charlotte-nahrdelnik-rose/1.jpg",
+   "/img/produkty/charlotte-nahrdelnik-rose/2.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:54:00.000Z"
  },
@@ -140,14 +168,18 @@
   "price": 1387,
   "badge": "",
   "material": "Říční perly · nerezový řetízek se srdíčkem",
-  "desc": "Vrstvený náhrdelník z říčních perel. Z perlové části vychází jemný nerezový řetízek s nerezovým srdíčkem.",
+  "desc": "Vrstvený náhrdelník z říčních perel o velikosti zhruba 4 až 5 mm. Z perlové části vychází jemný nerezový řetízek s nerezovým srdíčkem a obě části tvoří jeden šperk. Délka je 43 cm. Každá perla má trochu jiný tvar, a proto je každý kus jedinečný.",
   "props": {
    "Materiál": "Říční perly",
    "Přívěsek": "Nerezové srdíčko",
    "Kov": "Nerezová ocel",
+   "Délka": "43 cm",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/pure-silver-heart/1.jpg",
+   "/img/produkty/pure-silver-heart/2.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:53:00.000Z"
  },
@@ -159,14 +191,20 @@
   "price": 610,
   "badge": "",
   "material": "Nepravidelné říční perly · nerezová puzeta",
-  "desc": "Perlové náušnice pro váš příběh. Říční perly visí pod nerezovou puzetou a jsou opravdu nepravidelné, takže každý pár vypadá trochu jinak.",
+  "desc": "Náušnice Pure tvoří nepravidelné říční perly zavěšené pod puzetou z nerezové oceli. Každá perla se liší tvarem i povrchem, takže každý pár je trochu jiný. Můžete je nosit samostatně nebo spolu s náhrdelníkem Pure.",
   "props": {
    "Materiál": "Nepravidelné říční perly",
    "Typ": "Puzeta s visací perlou",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/pure-nausnice/1.jpg",
+   "/img/produkty/pure-nausnice/2.jpg",
+   "/img/produkty/pure-nausnice/3.jpg",
+   "/img/produkty/pure-nausnice/4.jpg",
+   "/img/produkty/pure-nausnice/5.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:52:00.000Z"
  },
@@ -178,14 +216,19 @@
   "price": 1653,
   "badge": "",
   "material": "Drobné i výrazné říční perly · nerezová ocel",
-  "desc": "Jemný příběh z perel. Náhrdelník Pure spojuje drobné říční perly s výraznějšími nepravidelnými perlami.",
+  "desc": "Náhrdelník Pure spojuje drobné říční perly s většími nepravidelnými perlami a doplňuje ho jemný perlový přívěsek. Kovové části jsou z nerezové oceli ve stříbrné barvě. Jednoduchý a čistý šperk, který se hodí na každý den i k šatům.",
   "props": {
    "Materiál": "Říční perly",
    "Styl": "Perlový náhrdelník",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/pure-nahrdelnik/1.jpg",
+   "/img/produkty/pure-nahrdelnik/2.jpg",
+   "/img/produkty/pure-nahrdelnik/3.jpg",
+   "/img/produkty/pure-nahrdelnik/4.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:51:00.000Z"
  },
@@ -197,14 +240,19 @@
   "price": 499,
   "badge": "",
   "material": "Akvamarín · říční perly · nerezová ocel",
-  "desc": "Vzpomínka na léto u moře. Světle modrý akvamarín a říční perly tvoří jemné náušnice, které doplňují náhrdelník Moře medvídek.",
+  "desc": "Jemné visací náušnice z modrého akvamarínu a říčních perel. Doplňují náhrdelník Moře medvídek a nesou stejný motiv moře, samy o sobě ale působí lehce a nenápadně. Kovové části jsou z nerezové oceli.",
   "props": {
    "Materiál": "Akvamarín, říční perly",
    "Kov": "Nerezová ocel",
    "Set": "Moře medvídek",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/more-medvidek-nausnice/1.jpg",
+   "/img/produkty/more-medvidek-nausnice/2.jpg",
+   "/img/produkty/more-medvidek-nausnice/3.jpg",
+   "/img/produkty/more-medvidek-nausnice/4.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:50:00.000Z"
  },
@@ -216,14 +264,20 @@
   "price": 1542,
   "badge": "",
   "material": "Akvamarín · říční perly · medvídek z růženínu",
-  "desc": "Jemný hravý příběh moře. Modré tóny akvamarínu se setkávají s říčními perlami a medvídkem z růžového křemene.",
+  "desc": "Hravý náhrdelník, ve kterém se modré odstíny akvamarínu setkávají s říčními perlami. Uprostřed visí medvídek vyřezaný z růžového křemene. Kovové části jsou z nerezové oceli a délka náhrdelníku je 45 až 50 cm.",
   "props": {
    "Materiál": "Akvamarín, říční perly",
    "Přívěsek": "Medvídek z růženínu",
    "Kov": "Nerezová ocel",
+   "Délka": "45 až 50 cm",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/more-medvidek/1.jpg",
+   "/img/produkty/more-medvidek/2.jpg",
+   "/img/produkty/more-medvidek/3.jpg",
+   "/img/produkty/more-medvidek/4.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:49:00.000Z"
  },
@@ -235,14 +289,20 @@
   "price": 555,
   "badge": "",
   "material": "Zlomky akvamarínu · pravé říční perly",
-  "desc": "Náušnice ze zlomků přírodního akvamarínu a pravých říčních perel. Ladí s náhrdelníkem Moře Květ.",
+  "desc": "Visací náušnice ze zlomků přírodního akvamarínu a pravých říčních perel na kroužcích z nerezové oceli. Světle modrý akvamarín připomíná mořskou hladinu a perly dodávají jemnost. Můžete je nosit samostatně nebo v setu s náhrdelníkem Moře Květ.",
   "props": {
    "Materiál": "Přírodní akvamarín, říční perly",
    "Typ": "Visací",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/more-kvet-nausnice/1.jpg",
+   "/img/produkty/more-kvet-nausnice/2.jpg",
+   "/img/produkty/more-kvet-nausnice/3.jpg",
+   "/img/produkty/more-kvet-nausnice/4.jpg",
+   "/img/produkty/more-kvet-nausnice/5.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:48:00.000Z"
  },
@@ -254,14 +314,19 @@
   "price": 1520,
   "badge": "",
   "material": "Akvamarín · říční perly · přívěsek květ",
-  "desc": "Jemnost perel, svěží odstíny akvamarínu a drobný květ uprostřed. Náhrdelník spojuje nepravidelné perly se zlomky akvamarínu.",
+  "desc": "Náhrdelník Moře Květ kombinuje nepravidelné zlomky přírodního akvamarínu s pravými říčními perlami. Uprostřed visí jemný přívěsek ve tvaru květu z nerezové oceli. Modré tóny připomínají moře a světlé perly šperk zjemňují. Každý kámen i perla má vlastní tvar, takže je každý kus originál.",
   "props": {
    "Materiál": "Akvamarín, říční perly",
    "Přívěsek": "Květ",
    "Kov": "Nerezová ocel",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/more-kvet-nahrdelnik/1.jpg",
+   "/img/produkty/more-kvet-nahrdelnik/2.jpg",
+   "/img/produkty/more-kvet-nahrdelnik/3.jpg",
+   "/img/produkty/more-kvet-nahrdelnik/4.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:47:00.000Z"
  },
@@ -273,14 +338,19 @@
   "price": 532,
   "badge": "",
   "material": "Podlouhlé říční perly · nerezová ocel",
-  "desc": "Náušnice Moře navazují na stejnojmenný náhrdelník a společně vytvářejí jemný set inspirovaný barvami moře.",
+  "desc": "Jemné visací náušnice z nerezové oceli s podlouhlými pravými říčními perlami a přírodními kameny ve světle modrém tónu. Tvoří set s náhrdelníkem Moře, ale sluší i samostatně. Délka je zhruba 4 cm.",
   "props": {
    "Materiál": "Pravé říční perly",
    "Typ": "Visací",
    "Kov": "Nerezová ocel",
+   "Délka": "Zhruba 4 cm",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/more-nausnice/1.jpg",
+   "/img/produkty/more-nausnice/2.jpg",
+   "/img/produkty/more-nausnice/3.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:46:00.000Z"
  },
@@ -292,15 +362,286 @@
   "price": 1332,
   "badge": "",
   "material": "Akvamarín · pravé říční perly · nerezová ocel",
-  "desc": "Náhrdelník Moře zachycuje barvy, lehkost a klid mořské hladiny. Jemné akvamarínové korálky ve světle modrých tónech doplňují pravé říční perly.",
+  "desc": "Náhrdelník Moře zachycuje barvy a klid mořské hladiny. Světle modré akvamarínové korálky doplňují pravé říční perly a drobné prvky z nerezové oceli, uprostřed je výraznější podlouhlá perla. Délka je 43 cm. Nosí se samostatně jako lehký šperk na každý den nebo vrstvený s dalšími náhrdelníky.",
   "props": {
    "Materiál": "Akvamarín, pravé říční perly",
    "Kov": "Nerezová ocel",
    "Set": "Moře",
+   "Délka": "43 cm",
    "Dodání": "Ihned"
   },
-  "imgs": [],
+  "imgs": [
+   "/img/produkty/more/1.jpg",
+   "/img/produkty/more/2.jpg"
+  ],
   "inStock": true,
   "createdAt": "2026-10-03T11:45:00.000Z"
+ },
+ {
+  "id": "best-harmonie",
+  "cat": "nahrdelniky",
+  "collection": "Best",
+  "name": "Best náhrdelník Harmonie",
+  "price": 1121,
+  "badge": "",
+  "material": "Amazonit z Peru · říční perly · perleťové srdce",
+  "desc": "Náhrdelník Harmonie spojuje amazonit z Peru s říčními perlami a detaily z nerezové oceli. Dominantou je perleťové srdce zavěšené na předním kruhovém zapínání. Díky prodlužovacímu řetízku si délku nastavíte od 43 do 50 cm podle výstřihu. Kameny i perly jsou přírodní, takže je každý kus unikát.",
+  "props": {
+   "Materiál": "Amazonit, říční perly, perleť",
+   "Délka": "43 až 50 cm",
+   "Zapínání": "Přední kruhové",
+   "Kov": "Nerezová ocel, stříbrná",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/best-harmonie/1.jpg",
+   "/img/produkty/best-harmonie/2.jpg",
+   "/img/produkty/best-harmonie/3.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:43:00.000Z"
+ },
+ {
+  "id": "euforie-gold-kiss",
+  "cat": "nahrdelniky",
+  "collection": "Euforie",
+  "name": "Euforie Gold Kiss",
+  "price": 1607,
+  "badge": "",
+  "material": "Pravé říční perly 2 až 3 mm · ocel ve zlaté",
+  "desc": "Krátký perlový náhrdelník z kolekce Euforie z pravých říčních perel o velikosti 2 až 3 mm a nerezové oceli se zlatými detaily. Díky variabilní karabince si přívěsek snadno vyměníte podle nálady nebo příležitosti. Délka je 40 cm. Krásně se vrství s dalšími šperky z kolekce Euforie Gold.",
+  "props": {
+   "Materiál": "Pravé říční perly",
+   "Délka": "40 cm",
+   "Zapínání": "Variabilní karabinka",
+   "Kov": "Nerezová ocel, zlatá",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/euforie-gold-kiss/1.jpg",
+   "/img/produkty/euforie-gold-kiss/2.jpg",
+   "/img/produkty/euforie-gold-kiss/3.jpg",
+   "/img/produkty/euforie-gold-kiss/4.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:42:00.000Z"
+ },
+ {
+  "id": "duna-set",
+  "cat": "soupravy",
+  "collection": "Duna",
+  "name": "Duna SET",
+  "price": 3429,
+  "badge": "Set",
+  "material": "Amazonit · krémové perly · ocel ve zlaté",
+  "desc": "Set Duna tvoří náhrdelník, náramek a náušnice, které spojuje zlatý řetízek, světlé kousky amazonitu a krémové perly o velikosti 14 až 15 mm. Náhrdelník má po stranách dva přívěsky se stromem života a uprostřed perlový přívěsek, jeho délka je 50 cm a přívěsek přidává dalších 5 cm. Náramek má posuvné zapínání a nastavíte ho zhruba na 18,5 až 26 cm. Náušnice jsou zlaté kroužky s podlouhlým článkem a perlou, dlouhé asi 5 cm.",
+  "props": {
+   "Obsahuje": "Náhrdelník, náramek, náušnice",
+   "Materiál": "Amazonit, perly 14 až 15 mm",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/duna-set/1.jpg",
+   "/img/produkty/duna-set/2.jpg",
+   "/img/produkty/duna-set/3.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:41:00.000Z"
+ },
+ {
+  "id": "duna-nausnice",
+  "cat": "nausnice",
+  "collection": "Duna",
+  "name": "Duna náušnice",
+  "price": 654,
+  "badge": "",
+  "material": "Krémová perla · pozlacená nerezová ocel",
+  "desc": "Náušnice Duna spojují zlatý kroužek, protáhlý článek řetízku a krémovou perlu o velikosti 14 až 15 mm. Kovové části jsou z pozlacené nerezové oceli. Při pohybu se lehce pohupují a jsou dlouhé zhruba 5 cm. Nosí se samostatně i jako součást setu Duna.",
+  "props": {
+   "Materiál": "Perla 14 až 15 mm",
+   "Typ": "Kruhové visací",
+   "Délka": "Zhruba 5 cm",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/duna-nausnice/1.jpg",
+   "/img/produkty/duna-nausnice/2.jpg",
+   "/img/produkty/duna-nausnice/3.jpg",
+   "/img/produkty/duna-nausnice/4.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:40:00.000Z"
+ },
+ {
+  "id": "duna-naramek",
+  "cat": "naramky",
+  "collection": "Duna",
+  "name": "Duna náramek",
+  "price": 987,
+  "badge": "",
+  "material": "Amazonit · krémová perla · zlatý řetízek",
+  "desc": "Asymetrický náramek Duna: na jedné straně jemné zlomky amazonitu v zelenobílých odstínech, na druhé výraznější zlatý řetízek. Uprostřed je krémová perla, kterou z obou stran doplňují zlaté korálky. Kovové části jsou z nerezové oceli ve zlaté barvě a délku upravíte posuvným zapínáním.",
+  "props": {
+   "Materiál": "Amazonit, krémová perla",
+   "Zapínání": "Posuvné, nastavitelné",
+   "Kov": "Nerezová ocel, zlatá",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/duna-naramek/1.jpg",
+   "/img/produkty/duna-naramek/2.jpg",
+   "/img/produkty/duna-naramek/3.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:39:00.000Z"
+ },
+ {
+  "id": "duna-nahrdelnik",
+  "cat": "nahrdelniky",
+  "collection": "Duna",
+  "name": "Duna náhrdelník",
+  "price": 1986,
+  "badge": "",
+  "material": "Amazonit · krémové perly · strom života",
+  "desc": "Náhrdelník Duna kombinuje výrazný řetízek ve zlaté barvě s jemnými zelenobílými kousky amazonitu a velkými krémovými perlami o velikosti 14 až 15 mm. Na stranách visí dva přívěsky s gravírovaným stromem života a uprostřed se seskupují čtyři perly. Délka je 50 cm a perlový přívěsek přidává dalších 5 cm.",
+  "props": {
+   "Materiál": "Amazonit, perly 14 až 15 mm",
+   "Délka": "50 cm + 5 cm přívěsek",
+   "Přívěsek": "Strom života",
+   "Kov": "Nerezová ocel, zlatá",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/duna-nahrdelnik/1.jpg",
+   "/img/produkty/duna-nahrdelnik/2.jpg",
+   "/img/produkty/duna-nahrdelnik/3.jpg",
+   "/img/produkty/duna-nahrdelnik/4.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:38:00.000Z"
+ },
+ {
+  "id": "euforie-gold-set",
+  "cat": "soupravy",
+  "collection": "Euforie",
+  "name": "Euforie Gold SET",
+  "price": 3429,
+  "badge": "Set",
+  "material": "Pravé říční perly · nerezová ocel ve zlaté",
+  "desc": "Set Euforie Gold tvoří asymetrický náhrdelník, náramek a dlouhé náušnice z pravých říčních perel o velikosti 5 až 6 mm a nerezové oceli ve zlaté barvě. Náhrdelník spojuje perlový pramen s řetízkem Rolo a na variabilní karabince si můžete měnit přívěsky. Náramek má deset perel s drobnými kytičkami a srdíčkem na konci, náušnice jsou dlouhé zhruba 7,2 cm. Šperky můžete nosit společně i samostatně.",
+  "props": {
+   "Obsahuje": "Náhrdelník, náramek, náušnice",
+   "Materiál": "Pravé říční perly 5 až 6 mm",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/euforie-gold-set/1.jpg",
+   "/img/produkty/euforie-gold-set/2.jpg",
+   "/img/produkty/euforie-gold-set/3.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:37:00.000Z"
+ },
+ {
+  "id": "euforie-gold-naramek",
+  "cat": "naramky",
+  "collection": "Euforie",
+  "name": "Euforie Gold náramek",
+  "price": 950,
+  "badge": "",
+  "material": "Říční perly · řetízek Rolo · srdíčko",
+  "desc": "Náramek Euforie Gold kombinuje deset pravých říčních perel o velikosti 5 až 6 mm se zlatým řetízkem Rolo. Mezi perlami jsou drobné ozdobné kytičky a na konci visí srdíčko. Perly jsou ručně navlečené na šperkařském lanku. Zapíná se na americký zámek a délku upravíte prodlužovacím řetízkem.",
+  "props": {
+   "Materiál": "Pravé říční perly 5 až 6 mm",
+   "Zapínání": "Americké s prodloužením",
+   "Přívěsek": "Srdíčko",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/euforie-gold-naramek/1.jpg",
+   "/img/produkty/euforie-gold-naramek/2.jpg",
+   "/img/produkty/euforie-gold-naramek/3.jpg",
+   "/img/produkty/euforie-gold-naramek/4.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:36:00.000Z"
+ },
+ {
+  "id": "euforie-gold-nausnice",
+  "cat": "nausnice",
+  "collection": "Euforie",
+  "name": "Euforie Gold náušnice",
+  "price": 850,
+  "badge": "",
+  "material": "Pravé říční perly · ocel ve zlaté",
+  "desc": "Dlouhé náušnice z řady Euforie Gold s pravými říčními perlami o velikosti 5 až 6 mm na jemných řetízcích, zavěšené na kroužku ve zlaté barvě. Každá perla má trochu jiný tvar a jemný lesk. Jedna náušnice měří zhruba 7,2 cm i s kroužkem. Hodí se na každý den i na slavnostnější večer.",
+  "props": {
+   "Materiál": "Pravé říční perly 5 až 6 mm",
+   "Typ": "Kruhové visací",
+   "Délka": "Zhruba 7,2 cm",
+   "Kov": "Nerezová ocel, zlatá",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/euforie-gold-nausnice/1.jpg",
+   "/img/produkty/euforie-gold-nausnice/2.jpg",
+   "/img/produkty/euforie-gold-nausnice/3.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:35:00.000Z"
+ },
+ {
+  "id": "euforie-gold-long",
+  "cat": "nahrdelniky",
+  "collection": "Euforie",
+  "name": "Euforie Gold Long náhrdelník",
+  "price": 1860,
+  "badge": "",
+  "material": "Říční perly · zlatý řetízek · křišťál",
+  "desc": "Dlouhý náhrdelník o délce 65 cm, který spojuje dvě části: jemně řazené říční perly se zlatými detaily a výraznější zlatý řetízek. Vpředu je spojuje kruhové zapínání s podlouhlým křišťálovým přívěskem. Variabilní karabina umožňuje přívěsky měnit. Sluší k jednoduchému oblečení i k výraznějšímu outfitu a dá se kombinovat s dalšími šperky Euforie.",
+  "props": {
+   "Materiál": "Pravé říční perly, křišťál",
+   "Délka": "65 cm",
+   "Zapínání": "Přední kruhové",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/euforie-gold-long/1.jpg",
+   "/img/produkty/euforie-gold-long/2.jpg",
+   "/img/produkty/euforie-gold-long/3.jpg",
+   "/img/produkty/euforie-gold-long/4.jpg",
+   "/img/produkty/euforie-gold-long/5.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:34:00.000Z"
+ },
+ {
+  "id": "euforie-gold-nahrdelnik",
+  "cat": "nahrdelniky",
+  "collection": "Euforie",
+  "name": "Euforie Gold náhrdelník",
+  "price": 1560,
+  "badge": "",
+  "material": "Pravé říční perly · pozlacená ocel",
+  "desc": "Autorský náhrdelník Euforie Gold z pravých říčních perel o velikosti 5 až 6 mm a nerezové oceli s pozlacenými komponenty. Je dlouhý 50 cm a díky variabilní karabince si na něj můžete zavěsit přívěsek podle nálady. Šperk na každý den, který se krásně vrství s dalšími kousky z kolekce.",
+  "props": {
+   "Materiál": "Pravé říční perly 5 až 6 mm",
+   "Délka": "50 cm",
+   "Zapínání": "Variabilní karabinka",
+   "Kov": "Pozlacená nerezová ocel",
+   "Dodání": "Ihned"
+  },
+  "imgs": [
+   "/img/produkty/euforie-gold-nahrdelnik/1.jpg",
+   "/img/produkty/euforie-gold-nahrdelnik/2.jpg",
+   "/img/produkty/euforie-gold-nahrdelnik/3.jpg"
+  ],
+  "inStock": true,
+  "createdAt": "2026-10-03T10:33:00.000Z"
  }
 ]
