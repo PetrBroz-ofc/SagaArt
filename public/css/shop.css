@@ -524,3 +524,41 @@ img { max-width:100%; display:block; }
 .hero-in .hero-btns { transition-delay:.42s; }
 .hero-in .hero-media .caption { transition-delay:.7s; }
 .hero-in .facts { transition-delay:.8s; }
+
+/* ── POSOUVÁTKO PÁSU KOLEKCÍ (js/carousel.js) ── */
+.carousel { position:relative; }
+.carousel .cat-grid { scrollbar-width:none; padding-bottom:4px; cursor:grab; outline:none; }
+.carousel .cat-grid::-webkit-scrollbar { display:none; }
+.carousel.show-cursor .cat-grid { cursor:none; }
+.carousel.is-dragging .cat-grid { scroll-snap-type:none; cursor:grabbing; }
+.carousel.is-dragging .cat-card { pointer-events:none; }
+.carousel .cat-grid:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+
+.carousel-head { display:flex; align-items:center; gap:18px; }
+.carousel-count { font-family:var(--serif); font-size:1.05rem; color:var(--ink-3); font-variant-numeric:tabular-nums; min-width:62px; text-align:right; }
+.carousel-count b { font-weight:400; color:var(--ink); }
+.carousel-btn { width:48px; height:48px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--ink); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:background .25s, color .25s, border-color .25s, opacity .25s, transform .25s cubic-bezier(.2,.8,.2,1); }
+.carousel-btn .icon { width:18px; height:18px; transition:transform .3s cubic-bezier(.2,.8,.2,1); }
+.carousel-btn:hover:not(:disabled) { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.carousel-btn[data-carousel-prev]:hover:not(:disabled) .icon { transform:translateX(-3px); }
+.carousel-btn[data-carousel-next]:hover:not(:disabled) .icon { transform:translateX(3px); }
+.carousel-btn:active:not(:disabled) { transform:scale(.94); }
+.carousel-btn:disabled { opacity:.35; cursor:default; }
+
+.carousel-bar { position:relative; height:24px; margin-top:22px; cursor:pointer; touch-action:none; }
+.carousel-bar::before { content:""; position:absolute; left:0; right:0; top:50%; height:1px; background:var(--line); }
+.carousel-thumb { position:absolute; left:0; top:50%; height:2px; margin-top:-1px; background:var(--ink); border-radius:2px; transition:height .2s, margin .2s; will-change:transform; }
+.carousel-bar:hover .carousel-thumb, .carousel.is-dragging .carousel-thumb { height:4px; margin-top:-2px; }
+.carousel.is-static .carousel-bar, .carousel.is-static .carousel-head .carousel-btn, .carousel.is-static .carousel-count { visibility:hidden; }
+
+.drag-cursor { position:absolute; left:0; top:0; z-index:5; width:96px; height:96px; border-radius:50%; background:var(--ink); color:var(--bg); display:flex; align-items:center; justify-content:center; gap:6px; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; pointer-events:none; opacity:0; scale:.4; transition:opacity .25s, scale .35s cubic-bezier(.2,.8,.2,1); }
+.drag-cursor .icon { width:12px; height:12px; }
+.carousel.show-cursor .drag-cursor { opacity:.92; scale:1; }
+.carousel.is-dragging .drag-cursor { scale:.8; }
+
+@media(max-width:860px) {
+  .carousel-head .carousel-btn { width:42px; height:42px; }
+  .drag-cursor { display:none; }
+  .carousel .cat-grid { cursor:auto; }
+}
+.carousel .section-lead { margin-top:12px; }
