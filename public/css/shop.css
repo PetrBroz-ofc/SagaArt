@@ -567,3 +567,11 @@ img { max-width:100%; display:block; }
   .carousel .cat-grid { cursor:auto; }
 }
 .carousel .section-lead { margin-top:12px; }
+
+/* ── GALERIE NA MODELCE (samostatná sekce před šperky) ── */
+.gallery-sec { background:linear-gradient(165deg, #ece7f6 0%, #f7e7ef 100%); padding-bottom:96px; }
+.gallery-sec .footer-strip { padding-top:96px; }
+@media(max-width:860px) {
+  .gallery-sec { padding-bottom:64px; }
+  .gallery-sec .footer-strip { padding-top:64px; }
+}
